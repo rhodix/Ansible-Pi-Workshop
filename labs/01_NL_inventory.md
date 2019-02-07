@@ -6,10 +6,10 @@ Alle acties worden uitgevoerd in de home directory van de SSH server.
 ## Task 1.1: Inventory file aanmaken
 In de inventory file wordt beschreven hoe Ansible je Raspberry Pi kan bereiken. Een Ansible inventory werkt altijd met een groep, welke tussen blokhaken wordt gezet: [ en ]. Onder de groep worden alle hosts omschreven. In dit geval gaat het om maar 1 host. Omdat het aanspreken van een host makkelijker gaat met een naam, dan met een IP adres, geven we de Raspberry een naam. Met de variable ansible_host koppelen we deze naam aan het juiste IP adres.
 
+* Edit de file inventory:
 ``vi inventory``
 
-Vul de inventory file met (vervang <ipaddress> door het IP adres van de Raspberry Pi:
-
+* Vul de inventory file met (vervang <ipaddress> door het IP adres van de Raspberry Pi:
 ```
 [pi]
 raspberry ansible_host=<ipaddress>
@@ -26,11 +26,10 @@ In het configuratie bestand ansible.cfg kan een alternatief pad geconfigueerd wo
 
 Door een ansible.cfg in dezelfde directory te zetten als het playbook (welke we in een later lab aanmaken), worden alle default instellingen overruled door de instellingen in deze ansible.cfg. We laten de inventory wijzen naar ~/inventory (de ~ is een alias voor je home directory; de plek waar de inventory file is aangemaakt). Nu we toch bezig zijn, configureren we alvast de user waarmee we straks via Ansible inloggen op de Raspberry. Bij Raspberries is dat standaard de user: pi. Verder schakelen we host_key_checking uit. 
 
-Maak een ansible.cfg aan:
-
+* Maak een ansible.cfg aan:
 ``vi ansible.cfg``
 
-Vul de ansible.cfg met:
+* Vul de ansible.cfg met:
 ```
 [defaults]
 inventory = ~/inventory
@@ -39,4 +38,27 @@ remote_user = pi
 host_key_checking = False
 ```
 
+## Task 1.3: Test de werking
+Ansible werkt met modules. Voor bijna elke functie is wel een module te vinden. Voor het aanmaken van een gebruiker wordt bijvoorbeeld de module ``user`` gebruikt. In onze eerste stap met Ansible gaan we de module ``ping`` gebruiken. Met de module ``ping`` kun je de verbinding met je clients testen. Anders dan je gewend bent van de ping commando's van je Operating System (bijvoorbeeld Windows of Linux), test de ``ping`` module niet alleen of de client bereikbaar is (icmp reply), maar controleert of Ansible daadwerkelijk in kan loggen op de client (voor Linux clients logt Ansible in met SSH). Zie https://docs.ansible.com/ansible/2.7/modules/ping_module.html#ping-module.
 
+**Tip:** Een overzicht van alle modules is terug te vinden in de online documentatie van Ansible op: https://docs.ansible.com/ansible/2.5/modules/list_of_all_modules.html.
+
+* Controleer of de inventory file en de ansible.cfg in je home directory staan:
+
+``ls``
+
+```
+ansible.cfg  inventory
+```
+* Controleer of de Ansible module ``ping`` antwoord geeft:
+
+``ansible -k -m ping pi``
+
+```
+SSH password:
+raspberry | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+```
+**Tip:** In ons voorbeeld vraagt Ansible om een SSH password. In een geautomatiseerd scenario is het gebruikelijk om met SSH Autorized Keys te werken. In een later lab richten we de Raspberry Pi in met Autorized keys, zodat Ansible direct, zonder wachtwoord, in kan loggen op de Pi. Omdat we nog geen Authorized keys hebben ingericht, geven we met -k de instructie om een SSH password te vragen.
