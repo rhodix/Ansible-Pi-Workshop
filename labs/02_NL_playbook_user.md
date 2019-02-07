@@ -28,8 +28,6 @@ De file ``id_rsa.pub`` is de public key. De file ``id_rsa`` is de private key. M
   ```
   ---
   - hosts: workshop
-    become: true
-    become_method: sudo
 
     tasks:
      - name: "Ensure authorized key is installed for user pi"
@@ -42,6 +40,12 @@ De file ``id_rsa.pub`` is de public key. De file ``id_rsa`` is de private key. M
   ```
 
 **Tip:** Playbooks werken met Yaml files. Voor de werking van Yaml files is het belangrijk dat het inspringen van de regels nauwkeurig gebeurd. Dit kan met tabs, maar het is gebruikelijker om dit met 2 (of 4) spaties te doen. Als je ooit met Python hebt gewerkt, dan zul je dit herkennen. 
+
+Als het goed is, valt op dat het playbook redelijk leesbaar is. Zelfs zonder kennis van Ansible is redelijk in te schatten wat dit playbook uit zal voeren. De samenvatting:
+* Het playbook zal uitgevoerd worden op alle clients in de groep ``workshop``.
+* Het playbook bestaat uit een enkele taak.
+* Met ``name`` wordt beschreven wat deze taak doet.
+* De module ``authorized_key`` wordt gebruikt om voor de ``user`` ``pi`` de ``key`` te installeren. Daarbij wordt de file ``.ssh/id_rsa.pub`` gebruikt.
 
 ## Task 2.2: Het playbook starten
 
