@@ -72,6 +72,7 @@ In de documentatie vind je meer details over de module ``authorized_key``. Zie h
 Omdat nu de Authorized key voor SSH op de Raspberry Pi is geïnstalleerd, kun je zonder wachtwoord inloggen op de Raspberry pi.
 
 * Controleer of je zonder wachtwoord in kunt loggen (vervang <ipaddress> met het IP adres van je Raspberry Pi):
+  
   ``$ ssh -l <ipaddress>`` 
 
   ``` 
@@ -79,6 +80,7 @@ Omdat nu de Authorized key voor SSH op de Raspberry Pi is geïnstalleerd, kun je
   ```
 
 * Log direct weer uit met ``exit``:
+
   ``pi@raspberry:~ $ exit``
 
   ```
