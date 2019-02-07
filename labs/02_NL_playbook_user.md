@@ -49,20 +49,55 @@ Als het goed is, valt op dat het playbook redelijk leesbaar is. Zelfs zonder ken
 
 ## Task 2.2: Het playbook starten
 
-``$ ansible-playbook -kK workshop.yml``
+  ``$ ansible-playbook -k workshop.yml``
 
-```
-SH password:
-SUDO password[defaults to SSH password]:
+  ```
+  SSH password:
 
-PLAY [workshop] **********************************************************************************************************************************************************************************************************
+  PLAY [workshop] **********************************************************************************************************************************************************************************************************
 
-TASK [Gathering Facts] ***************************************************************************************************************************************************************************************************
-ok: [pi]
+  TASK [Gathering Facts] ***************************************************************************************************************************************************************************************************
+  ok: [pi]
 
-TASK [Ensure authorized key is installed for user pi] ********************************************************************************************************************************************************************
-changed: [pi] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnZtlzLhYrZAIxTiiN/b5WaRAHaze4BecufyjpQkQ9QCSqglfxnKSERtrwQmes31FJPRNY2DWvzvSgV1cJHnyYWKFeWQJv6nVvSCFOpmtqbqPHuSVV1O5S3CLHrmLWtZ8CeBNawnAMBlaDzZ2h9duDED+Ecx/bYYJakcQXR++LpqQ1voYX8gwGLD8dBY3i+hgjZ/pA6ITM1PLVwNaHzUZ5uL3ne6/RyzsjCfK+cJdxt+OtN6QsGHJwrV3hX3mVcyZVE3Ta72/1asm3CzeQAYA3CwBdxqfAONYck8UZeh8N0VtTsX+g8nrPBozRv47nF4JhFjBG2N/u37MEixoN8skV rhodix@centos7)
+  TASK [Ensure authorized key is installed for user pi] ********************************************************************************************************************************************************************
+  changed: [pi] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnZtlzLhYrZAIxTiiN/b5WaRAHaze4BecufyjpQkQ9QCSqglfxnKSERtrwQmes31FJPRNY2DWvzvSgV1cJHnyYWKFeWQJv6nVvSCFOpmtqbqPHuSVV1O5S3CLHrmLWtZ8CeBNawnAMBlaDzZ2h9duDED+Ecx/bYYJakcQXR++LpqQ1voYX8gwGLD8dBY3i+hgjZ/pA6ITM1PLVwNaHzUZ5uL3ne6/RyzsjCfK+cJdxt+OtN6QsGHJwrV3hX3mVcyZVE3Ta72/1asm3CzeQAYA3CwBdxqfAONYck8UZeh8N0VtTsX+g8nrPBozRv47nF4JhFjBG2N/u37MEixoN8skV user@host)
 
-PLAY RECAP ***************************************************************************************************************************************************************************************************************
-pi                         : ok=2    changed=1    unreachable=0    failed=0
-```
+  PLAY RECAP ***************************************************************************************************************************************************************************************************************
+  pi                         : ok=2    changed=1    unreachable=0    failed=0
+  ```
+
+## Task 2.3: Het playbook nogmaals starten
+Omdat nu de Authorized key voor SSH op de Raspberry Pi is geïnstalleerd, kun je zonder wachtwoord inloggen op de Raspberry pi.
+
+* Controleer of je zonder wachtwoord in kunt loggen (vervang <ipaddress> met het IP adres van je Raspberry Pi):
+  ``$ ssh -l <ipaddress>`` 
+
+  ``` 
+  pi@raspberry:~ $ 
+  ```
+
+* Log direct weer uit met ``exit``:
+  ``pi@raspberry:~ $ exit``
+
+  ```
+  logout
+  Connection to raspberry-pi closed.
+  ```
+
+* Start het playbook, maar zonder de parameter ``-k``:
+
+  ``$ ansible-playbook workshop.yml``
+  
+  ```
+
+  PLAY [workshop] **********************************************************************************************************************************************************************************************************
+
+  TASK [Gathering Facts] ***************************************************************************************************************************************************************************************************
+  ok: [pi]
+
+  TASK [Ensure authorized key is installed for user pi] ********************************************************************************************************************************************************************
+  ok: [pi] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnZtlzLhYrZAIxTiiN/b5WaRAHaze4BecufyjpQkQ9QCSqglfxnKSERtrwQmes31FJPRNY2DWvzvSgV1cJHnyYWKFeWQJv6nVvSCFOpmtqbqPHuSVV1O5S3CLHrmLWtZ8CeBNawnAMBlaDzZ2h9duDED+Ecx/bYYJakcQXR++LpqQ1voYX8gwGLD8dBY3i+hgjZ/pA6ITM1PLVwNaHzUZ5uL3ne6/RyzsjCfK+cJdxt+OtN6QsGHJwrV3hX3mVcyZVE3Ta72/1asm3CzeQAYA3CwBdxqfAONYck8UZeh8N0VtTsX+g8nrPBozRv47nF4JhFjBG2N/u37MEixoN8skV user@host)
+
+  PLAY RECAP ***************************************************************************************************************************************************************************************************************
+  pi                         : ok=2    changed=0    unreachable=0    failed=0
+  ```
