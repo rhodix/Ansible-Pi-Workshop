@@ -1,4 +1,4 @@
-# Lab 2: Playbook - User aanmaken
+# Lab 2: Playbook - User configureren
 Een playbook is een beschrijving hoe een systeem ingericht zou moeten zijn. Dit playbook bestaat uit een lijst met stappen. Elke stap controleert de huidige toestand en past deze, indien nodig, aan. Komt het systeem al overeen met de beschrijving van de stap, dan doet Ansible niets.
 **Tip:** Probeer het playbook zo in te richten dat er geen changes meer worden gemaakt, wanneer het playbook voor de 2e maal uitgevoerd wordt. Daarnaast is het gebruikelijk om een playbook zodanig te maken dat deze meerdere malen uitgevoerd kan worden, zonder dat dit problemen geeft.
 
@@ -46,6 +46,8 @@ Als het goed is, valt op dat het playbook redelijk leesbaar is. Zelfs zonder ken
 * Het playbook bestaat uit een enkele taak.
 * Met ``name`` wordt beschreven wat deze taak doet.
 * De module ``authorized_key`` wordt gebruikt om voor de ``user`` ``pi`` de ``key`` te installeren. Daarbij wordt de file ``.ssh/id_rsa.pub`` gebruikt.
+
+In de documentatie vind je meer details over de module ``authorized_key``. Zie https://docs.ansible.com/ansible/latest/modules/authorized_key_module.html.
 
 ## Task 2.2: Het playbook starten
 
