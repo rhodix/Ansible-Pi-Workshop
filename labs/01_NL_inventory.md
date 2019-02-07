@@ -41,9 +41,9 @@ host_key_checking = False
 ```
 
 ## Task 1.3: Test de werking
-Ansible werkt met modules. Voor bijna elke functie is wel een module te vinden. Voor het aanmaken van een gebruiker wordt bijvoorbeeld de module ``user`` gebruikt. In onze eerste stap met Ansible gaan we de module ``ping`` gebruiken. Met de module ``ping`` kun je de verbinding met je clients testen. Anders dan je gewend bent van de ping commando's van je Operating System (bijvoorbeeld Windows of Linux), test de ``ping`` module niet alleen of de client bereikbaar is (icmp reply), maar controleert of Ansible daadwerkelijk in kan loggen op de client (voor Linux clients logt Ansible in met SSH). Zie https://docs.ansible.com/ansible/2.7/modules/ping_module.html#ping-module.
+Ansible werkt met modules. Voor bijna elke functie is wel een module te vinden. Voor het aanmaken van een gebruiker wordt bijvoorbeeld de module ``user`` gebruikt. In onze eerste stap met Ansible gaan we de module ``ping`` gebruiken. Met de module ``ping`` kun je de verbinding met je clients testen. Anders dan je gewend bent van de ping commando's van je Operating System (bijvoorbeeld Windows of Linux), test de ``ping`` module niet alleen of de client bereikbaar is (icmp reply), maar controleert of Ansible daadwerkelijk in kan loggen op de client (voor Linux clients logt Ansible in met SSH). Zie https://docs.ansible.com/ansible/latest/modules/ping_module.html#ping-module.
 
-**Tip:** Een overzicht van alle modules is terug te vinden in de online documentatie van Ansible op: https://docs.ansible.com/ansible/2.5/modules/list_of_all_modules.html.
+**Tip:** Een overzicht van alle modules is terug te vinden in de online documentatie van Ansible op: https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html.
 
 * Controleer of de inventory file en de ansible.cfg in je home directory staan:
 
