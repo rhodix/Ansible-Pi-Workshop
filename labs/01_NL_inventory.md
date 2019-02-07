@@ -54,7 +54,7 @@ ansible.cfg  inventory
 ```
 * Controleer of de Ansible module ``ping`` antwoord geeft:
 
-``ansible -k -m ping pi``
+``$ ansible -k -m ping pi``
 
 ```
 SSH password:
@@ -67,4 +67,4 @@ raspberry | SUCCESS => {
 
 In de inventory file hebben we de groep [pi] gedefineerd. De ``ping`` module zal daarom alle hosts controleren. In ons lab hebben we maar 1 host gedefineerd: ``raspberry``. Als we meerdere hosts in de groep hadden gezet, zouden alle hosts antwoorden. 
 
-**Tip:** Het is ook mogelijk om een enkele host te testen. Met ``ansible -k -m ping raspberry`` wordt de module alleen maar op de host ``raspberry`` uitgevoerdt.
+**Tip:** Het is ook mogelijk om een enkele host te testen. Met ``ansible -k -m ping raspberry`` wordt de module alleen maar op de host ``raspberry`` uitgevoerd.
