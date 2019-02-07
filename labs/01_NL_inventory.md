@@ -7,7 +7,7 @@ Alle acties worden uitgevoerd in de home directory van de SSH server.
 In de inventory file wordt beschreven hoe Ansible je Raspberry Pi kan bereiken. Een Ansible inventory werkt altijd met een groep, welke tussen blokhaken wordt gezet: [ en ]. Onder de groep worden alle hosts omschreven. In dit geval gaat het om maar 1 host. Omdat het aanspreken van een host makkelijker gaat met een naam, dan met een IP adres, geven we de Raspberry een naam. Met de variable ansible_host koppelen we deze naam aan het juiste IP adres.
 
 * Edit de file inventory:
-``vi inventory``
+``$ vi inventory``
 
 * Vul de inventory file met (vervang <ipaddress> door het IP adres van de Raspberry Pi:
 ```
@@ -27,7 +27,7 @@ In het configuratie bestand ansible.cfg kan een alternatief pad geconfigueerd wo
 Door een ansible.cfg in dezelfde directory te zetten als het playbook (welke we in een later lab aanmaken), worden alle default instellingen overruled door de instellingen in deze ansible.cfg. We laten de inventory wijzen naar ~/inventory (de ~ is een alias voor je home directory; de plek waar de inventory file is aangemaakt). Nu we toch bezig zijn, configureren we alvast de user waarmee we straks via Ansible inloggen op de Raspberry. Bij Raspberries is dat standaard de user: pi. Verder schakelen we host_key_checking uit. 
 
 * Maak een ansible.cfg aan:
-``vi ansible.cfg``
+``$ vi ansible.cfg``
 
 * Vul de ansible.cfg met:
 ```
@@ -45,7 +45,7 @@ Ansible werkt met modules. Voor bijna elke functie is wel een module te vinden. 
 
 * Controleer of de inventory file en de ansible.cfg in je home directory staan:
 
-``ls``
+``$ ls``
 
 ```
 ansible.cfg  inventory
