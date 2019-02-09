@@ -30,8 +30,39 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
           - python-setuptools
           - sshpass
   ```
+  
+**Tip:** In Ansible kun je werken met variablen. Variablen worden altijd genoteerd tussen {{ en }}. Als je variablen gebruikt moet de hele waarde genoteerd worden tussen double-quotes: ". In de variable ``packages`` in het bovenstaande playbook is een lijst gemaakt. De onderdelen van deze lijst start je in Ansible gewoon met een -. Zo ontstaat een leesbare lijst.
 
 * Test je playbook:
+
+  ``$ ansible-playbook workshop.yml``
+
+Het playbook faalt:
+
+```
+TASK [Install a list of packages] **********************************************************************************************
+fatal: [pi]: FAILED! => {"changed": false, "msg": "'/usr/bin/apt-mark manual ieee-data python-netaddr python-kerberos python-selinux python-xmltodict python-httplib2 python-jinja2 python-yaml python-paramiko python-yaml python-cryptography python-setuptools sshpass' failed: E: Could not create temporary file for /var/lib/apt/extended_states - mkstemp (13: Permission denied)\nE: Failed to write temporary StateFile /var/lib/apt/extended_states\n", "rc": 100, "stderr": "E: Could not create temporary file for /var/lib/apt/extended_states - mkstemp (13: Permission denied)\nE: Failed to write temporary StateFile /var/lib/apt/extended_stat
+```
+
+Als je goed kijkt naar de foutmeldingen, dan lijkt het er op dat er een rechten probleem is. Wanneer je de packages met ``apt-get`` zou installeren, zou je daar ``sudo`` voor gebruiken. Met Ansible is dat eigenlijk niet anders. Om de packages te installeren, zullen we Ansible moeten instrueren om ``sudo`` te gebruiken
+
+**Tip:** Naast ``sudo`` ondersteund Ansible ook andere methoden om meer rechten te verkrijgen. Zie https://docs.ansible.com/ansible/latest/user_guide/become.html.
+
+## Task 3.2: Task met sudo rechten starten
+In Ansible is de variable ``become`` verantwoordelijk voor het starten van een playbook met meer rechten. De methode daarvoor stel je in met ``become_method``.
+
+* Bewerk je playbook:
+
+  ``$ vi workshop.yml``
+  
+* Zet onder ``hosts``:
+
+  ```
+    become: true
+    become_method: sudo
+  ```
+  
+* Start het playbook opnieuw en controleer of er nu wel voldoende rechten zijn om packages te installeren.
 
   ``$ ansible-playbook workshop.yml``
 
