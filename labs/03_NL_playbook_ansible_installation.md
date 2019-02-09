@@ -84,9 +84,21 @@ Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar
           version: v2.7.6
           dest: /opt/ansible
   ```
-  
+
+**Tip:** Controleer altijd de handleiding van Ansible om je playbook nog slimmer te maken. In deze stap gebruiken we de parameter ``version`` om een specifieke versie te selecteren om via git te downloaden.
+
 * Start het playbook.
 
   ``$ ansible-playbook workshop.yml``
 
-  
+## Task 3.4: Ansible configureren
+
+
+  ```
+      - name: Ensure ansible is configured
+        command: /bin/sh /opt/ansible/hacking/env-setup
+        args:
+          creates: /opt/ansible/lib/ansible.egg-info/requires.txt
+  ```
+
+**Tip:** De Ansible modules ``command`` of ``shell`` zijn een laatste redmiddel. Probeer je probleem altijd op te lossen met Ansible modules. Pas als er nog geen module bestaat voor je probleem, grijp je terug op de ``command`` module. Met deze mpdule kun je in principe elk commando uitvoeren.
