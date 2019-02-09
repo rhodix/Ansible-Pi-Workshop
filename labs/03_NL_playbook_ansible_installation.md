@@ -79,10 +79,10 @@ Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar
 
   ```
       - name: "Ensure ansible is installed"
-      git:
-        repo: "git://github.com/ansible/ansible.git"
-        version: v2.7.6
-        dest: /opt/ansible
+        git:
+          repo: "git://github.com/ansible/ansible.git"
+          version: v2.7.6
+          dest: /opt/ansible
   ```
   
 * Start het playbook.
