@@ -11,24 +11,24 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
 * Vul deze aan met:
 
   ```
-    - name: Install a list of packages
-    apt:
-      name: "{{ packages }}"
-    vars:
-      packages:
-      - ieee-data
-      - python-netaddr
-      - python-kerberos
-      - python-selinux
-      - python-xmltodict
-      - python-httplib2
-      - python-jinja2
-      - python-yaml
-      - python-paramiko
-      - python-yaml
-      - python-cryptography
-      - python-setuptools
-      - sshpass
+      - name: Install a list of packages
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - ieee-data
+        - python-netaddr
+        - python-kerberos
+        - python-selinux
+        - python-xmltodict
+        - python-httplib2
+        - python-jinja2
+        - python-yaml
+        - python-paramiko
+        - python-yaml
+        - python-cryptography
+        - python-setuptools
+        - sshpass
   ```
 
 * Test je playbook:
