@@ -66,3 +66,27 @@ In Ansible is de variable ``become`` verantwoordelijk voor het starten van een p
 
   ``$ ansible-playbook workshop.yml``
 
+**Tip:** De Raspberry is standaard geconfigueerd dat sudo niet om een wachtwoord vraagt (``NOPASSWD: ALL``). Daarom kunnen we het playbook starten zonder ``-K``. In productie omgevingen is het echter gebruikelijk om sudo met een wachtwoord te starten. Met ``-K`` kun je dit wachtwoord aan Ansible doorgeven.
+
+## Task 3.3: Ansible via Git installeren.
+Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar een specifieke directory.
+
+* Bewerk je playbook:
+
+  `` $ vi workshop.yml``
+  
+* Vul je playbook aan met:
+
+  ```
+      - name: "Ensure ansible is installed"
+      git:
+        repo: "git://github.com/ansible/ansible.git"
+        version: v2.7.6
+        dest: /opt/ansible
+  ```
+  
+* Start het playbook.
+
+  ``$ ansible-playbook workshop.yml``
+
+  
