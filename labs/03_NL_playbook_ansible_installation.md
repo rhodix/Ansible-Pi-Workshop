@@ -92,7 +92,9 @@ Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar
   ``$ ansible-playbook workshop.yml``
 
 ## Task 3.4: Ansible configureren
-
+Om Ansible te kunnen starten uit de git reposistory moet deze geconfigureerd worden. Ansible levert hiervoor een script mee.
+  
+* Vul je playbook aan met:
 
   ```
       - name: Ensure ansible is configured
@@ -102,3 +104,17 @@ Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar
   ```
 
 **Tip:** De Ansible modules ``command`` of ``shell`` zijn een laatste redmiddel. Probeer je probleem altijd op te lossen met Ansible modules. Pas als er nog geen module bestaat voor je probleem, grijp je terug op de ``command`` module. Met deze mpdule kun je in principe elk commando uitvoeren.
+
+## Task 3.5: Environment variablen configureren
+
+
+  ```
+      - name: Ensure ansible variables are set in bashrc
+        blockinfile:
+          path: /etc/bash.bashrc
+          block: |
+            export PATH=/opt/ansible/bin:$PATH
+            export PYTHONPATH=/opt/ansible/lib
+            export MANPATH=/opt/ansible/docs/man:$MANPATH
+            export ANSIBLE_HOME=~/ansible
+  ```
