@@ -35,4 +35,33 @@ De laatste stap is het zetten van de environment variablen. Daarnaast voegen we 
 
   ``$ ansible-playbook workshop.yml``
 
+**Tip:** Mocht er onverhoopt wat mis zijn gegaan, download dan het playbook via: https://raw.githubusercontent.com/rhodix/Ransible-Pi-Workshop/master/downloads/workshop.yml.
+
 ## Task 4.3: Werking testen
+Als het playbook alleen nog maar "ok" meldingen geeft, is het tijd om in te loggen op de Raspberry Pi, om te controleren of Ansible werkt.
+
+```
+PLAY RECAP ****************************************************************************************************************************
+pi                         : ok=6    changed=0    unreachable=0    failed=0
+```
+
+* Log in op je Raspberry (vervang met het IP adres van je Raspberry Pi):
+
+  ``$ ssh -l pi <ipaddress>``
+  
+* Controleer de versie van Ansible:
+
+  ``$ ansible --version``
+  
+* Als alles goed is gegaan, zal de versie 2.7.6 zijn.
+
+   ```
+   ansible 2.7.6 (detached HEAD 1594ccf533) last updated 2019/02/09 21:47:22 (GMT +200)
+     config file = None
+     configured module search path = [u'/home/pi/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+     ansible python module location = /opt/ansible/lib/ansible
+     executable location = /opt/ansible/bin/ansible
+     python version = 2.7.13 (default, Sep 26 2018, 18:42:22) [GCC 6.3.0 20170516]
+   ```
+   
+   
