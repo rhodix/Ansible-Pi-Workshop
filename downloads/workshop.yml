@@ -1,0 +1,52 @@
+---
+- hosts: workshop
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: "Ensure authorized key is installed for user pi"
+      authorized_key:
+        user: pi
+        state: present
+        key: '{{ item }}'
+      with_file:
+        - ".ssh/id_rsa.pub"
+
+    - name: Install a list of packages
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - ieee-data
+        - python-netaddr
+        - python-kerberos
+        - python-selinux
+        - python-xmltodict
+        - python-httplib2
+        - python-jinja2
+        - python-yaml
+        - python-paramiko
+        - python-yaml
+        - python-cryptography
+        - python-setuptools
+        - sshpass
+
+    - name: "Ensure ansible is installed"
+      git:
+        repo: "git://github.com/ansible/ansible.git"
+        version: v2.7.6
+        dest: /opt/ansible
+
+    - name: Ensure ansible is configured
+      command: /bin/sh /opt/ansible/hacking/env-setup
+      args:
+        creates: /opt/ansible/lib/ansible.egg-info/requires.txt
+
+    - name: Ensure ansible variables are set in bashrc
+      blockinfile:
+        path: /etc/bash.bashrc
+        block: |
+          export PATH=/opt/ansible/bin:$PATH
+          export PYTHONPATH=/opt/ansible/lib
+          export MANPATH=/opt/ansible/docs/man:$MANPATH
+          export ANSIBLE_HOME=~/ansible
