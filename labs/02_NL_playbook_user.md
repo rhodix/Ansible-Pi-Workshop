@@ -73,7 +73,7 @@ Omdat nu de Authorized key voor SSH op de Raspberry Pi is geïnstalleerd, kun je
 
 * Controleer of je zonder wachtwoord in kunt loggen (vervang <ipaddress> met het IP adres van je Raspberry Pi):
   
-  ``$ ssh -l <ipaddress>`` 
+  ``$ ssh -l pi <ipaddress>`` 
 
   ``` 
   pi@raspberry:~ $ 
