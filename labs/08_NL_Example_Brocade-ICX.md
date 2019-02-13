@@ -14,5 +14,11 @@ Voordat we de Brocade ICX switch kunnen configureren moeten we eerst een bug her
 
   ``$ curl https://raw.githubusercontent.com/rhodix/Ransible-Pi-Workshop/master/downloads/ironware.patch > files/ironware.patch``
   
+* Vul je playbook aan met:
 
-
+  ```
+      - name: Ensure the ironware module is patched
+        patch:
+          src: files/ironware.patch
+          dest: /opt/ansible/lib/ansible/plugins/terminal/ironware.py
+  ```
