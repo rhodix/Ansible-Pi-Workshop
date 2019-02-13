@@ -22,3 +22,15 @@ Voordat we de Brocade ICX switch kunnen configureren moeten we eerst een bug her
           src: files/ironware.patch
           dest: /opt/ansible/lib/ansible/plugins/terminal/ironware.py
   ```
+
+* Start je playbook:
+  
+  ``$ ansible-playbook workshop.yml``
+
+  ```
+  TASK [Ensure the ironware module is patched] ***************************************************************************************************************************************************
+  changed: [pi]
+
+    PLAY RECAP *************************************************************************************************************************************************************************************
+  pi                         : ok=7    changed=1    unreachable=0    failed=0
+  ```
