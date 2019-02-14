@@ -68,3 +68,36 @@ Een simpel voorbeeld om mee te starten is het configureren van de inlog banner.
 
   ``$ ansible-playbook cisco.yml --ask-pass``
   
+## Task 7.3: Playbook maken - Switchpoorten en VLANs configureren
+
+In het volgende playbook gaan we switchpoorten en vlans configureren.
+
+**Tip:** Voor het configureren van poorten in VLANs gebruiken we een variable: ``switchport``. Deze variable heeft 2 sub-elements: ``vlan`` en ``port``. In Ansible kun je deze variablen gebruiken door ze tussen een ``{`` en ``}`` te zetten. Als je variablen gebruikt moet de hele waarde genoteerd worden tussen double-quotes: ``"``
+  
+* Vul het playbook aan met (zet tussen ``remote_user`` en ``tasks``):
+
+  ```
+    vars:
+      switchport:
+        vlan: 350
+        port: 1/1/10
+  ```
+
+* Maak de tasks aan (in het einde van je playbook):
+
+  ```
+    - name: Create vlan
+      ios_vlan:
+        vlan_id: "{{ switchport.vlan }}"
+        name: test-vlan
+        state: present
+
+    - name: Add interfaces to VLAN
+      ios_vlan:
+        vlan_id: "{{ switchport.vlan }}"
+        interfaces:
+          - "FastEthernet{{ switchport.port }}"
+  ```
+
+  * Voer je playbook uit:
+    ``$ ansible-playbook cisco.yml --ask-pass``
