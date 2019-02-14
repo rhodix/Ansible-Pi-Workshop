@@ -142,13 +142,33 @@ Het toevoegen van een VLAN, of meerdere poorten aan een VLAN, is nu een kwestie 
   * Zet switchpoort 1/1/11 in vlan 351, door de variable aan te passen en het playbook opnieuw te starten.
   * Voeg switchpoort 1/1/12 ook toe aan vlan 351.
   
-## Task 8.4: Controleer het resultaat
+## Task 8.4: Variable list
 Is het je opgevallen dat je nog niet bent ingelogd op de switch? Wanneer je de hele configuratie vanuit Ansible zou doen, kun je zelfs het playbook gebruiken voor disaster recovery. Bij problemen sluit je gewoon een nieuwe switch aan en draai je het playbook. 
 
 In de praktijk zul je met variable lijsten werken, om alle poorten in 1 play in het juiste VLAN te zetten. 
 
+```
+  vars:
+    switchports:
+      - { port: 1/1/10, vlan: 350 }
+      - { port: 1/1/11, vlan: 351 }
+      - { port: 1/1/12, vlan: 351 }
+```
 
-  
+De task van je playbook ziet er dan zo uit:
+
+```
+  - name: "Add ports to VLAN" 
+    ironware_config:
+      lines:
+        - "untagged ethernet {{ item.port }}"
+      parents: ["vlan {{ item.vlan }} by port"]
+    with_items: "{{ switchports }}"
+```
+
+* Pas je playbook aan met de bovenstaande onderdelen en voer deze uit.
+
+## Task 8.5: Controleer het resultaat
 
 
   
