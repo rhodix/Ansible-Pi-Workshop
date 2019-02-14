@@ -1,0 +1,45 @@
+---
+- hosts: switches
+  connection: local
+  gather_facts: false
+  remote_user: workshop
+
+  vars:
+    switchport:
+      vlan: 350
+      port: FastEthernet0/10
+
+    switchports:
+      - vlan: 350
+        ports:
+          - FastEthernet0/10
+      - vlan: 351
+        ports:
+          - FastEthernet0/11
+          - FastEthernet0/12
+
+  tasks:
+  - name: Configure banner
+    ios_banner:
+      banner: login
+      text: |
+        Dit is een demo switch
+      state: present
+
+  - name: Create vlan
+    ios_vlan:
+      vlan_id: "{{ switchport.vlan }}"
+      name: test-vlan
+      state: present
+
+  - name: Add interfaces to VLAN
+    ios_vlan:
+      vlan_id: "{{ switchport.vlan }}"
+      interfaces:
+        - "{{ switchport.port }}"
+
+  - name: "Add ports to VLAN"
+    ios_vlan:
+      vlan_id: "{{ item.vlan }}"
+      interfaces: "{{ item.ports }}"
+    with_items: "{{ switchports }}"
