@@ -40,6 +40,42 @@ Helaas zit er een bug in de Ansible module ``ironware_config``. Voordat we de Br
   ```
 
 ## Task 8.2: Inventory aanpassen
+Voer deze task uit op je Raspberry Pi.
+
+* Log in op je Raspberry Pi.
+
+  ``$ ssh -l pi <ipaddress>`` 
+
+* Als het goed is log je direct in (zonder wachtwoord):
+
+  ``` 
+  pi@raspberry:~ $ 
+  ```
+
+* Maak een inventory file:
+
+``$ vi inventory``
+
+* Vul de inventory file met (vervang <ipaddress> door het IP adres van de switch:
+
+  ```
+  [switches]
+  switch-01 ansible_host=<ip address>
+  ```
+
+* Maak een ansible.cfg aan:
+
+``$ vi ansible.cfg``
+
+* Vul de ansible.cfg met:
+
+  ```
+  [defaults]
+  inventory = ~/inventory
+  remote_user = workshop
+  
+  host_key_checking = False
+  ```
 
 
 
