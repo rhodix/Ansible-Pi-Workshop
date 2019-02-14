@@ -156,8 +156,8 @@ In het volgende playbook gaan we switchpoorten en vlans configureren.
 
   ```
 
-  * Voer je playbook uit:
-    ``$ ansible-playbook brocade.yml --ask-pass``
+* Voer je playbook uit:
+  ``$ ansible-playbook brocade.yml --ask-pass``
 
 Het toevoegen van een VLAN, of meerdere poorten aan een VLAN, is nu een kwestie van aanpassen van de variable en het playbook opnieuw starten:
 
