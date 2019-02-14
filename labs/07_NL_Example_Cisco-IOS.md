@@ -80,7 +80,7 @@ In het volgende playbook gaan we switchpoorten en vlans configureren.
     vars:
       switchport:
         vlan: 350
-        port: 0/10
+        port: FastEthernet0/10
   ```
 
 * Maak de tasks aan (in het einde van je playbook):
@@ -96,7 +96,7 @@ In het volgende playbook gaan we switchpoorten en vlans configureren.
       ios_vlan:
         vlan_id: "{{ switchport.vlan }}"
         interfaces:
-          - "FastEthernet{{ switchport.port }}"
+          - "{{ switchport.port }}"
   ```
 
 * Voer je playbook uit:
@@ -111,10 +111,30 @@ Het toevoegen van een VLAN, of meerdere poorten aan een VLAN, is nu een kwestie 
 Wanneer je de hele configuratie vanuit Ansible zou doen, kun je zelfs het playbook gebruiken voor disaster recovery. Bij problemen sluit je gewoon een nieuwe switch aan en draai je het playbook. Het zou daarbij natuurlijk wel handiger zijn om een lijst met poorten en vlans te hebben, in plaats van steeds het playbook met het juiste vlan aan te moeten passen. In de praktijk zul je daarom vaak met variable lijsten werken, om alle poorten in 1 play in het juiste VLAN te zetten. 
 
 ```
-  vars:
     switchports:
-      - { port: 0/10, vlan: 350 }
-      - { port: 0/11, vlan: 351 }
-      - { port: 0/12, vlan: 351 }
+      - vlan: 350
+        ports:
+          - FastEthernet0/10
+      - vlan: 351
+        ports:
+          - FastEthernet0/11
+          - FastEthernet0/12
 ```
-  
+
+De task van je playbook ziet er dan zo uit:
+
+```
+  - name: "Add ports to VLAN"
+    ios_vlan:
+      vlan_id: "{{ item.vlan }}"
+      interfaces: "{{ item.ports }}"
+    with_items: "{{ switchports }}"
+ ```
+ 
+ 
+ * Pas je playbook aan met de bovenstaande onderdelen en voer deze uit.
+
+**Tip:** Mocht er onverhoopt wat mis zijn gegaan, download dan het playbook via: https://raw.githubusercontent.com/rhodix/Ransible-Pi-Workshop/master/downloads/cisco.yml.
+
+## Task 7.5: Controleer het resultaat
+
