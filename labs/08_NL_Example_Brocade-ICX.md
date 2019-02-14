@@ -48,11 +48,14 @@ Verder ondersteund de switch helaas de laatste encryptie methodes voor SSH nog n
   ``$ ansible-playbook workshop.yml``
 
   ```
-  TASK [Ensure the ironware module is patched] ***************************************************************************************************************************************************
+  TASK [Ensure the ironware module is patched] **************************************************************************************************************************
   changed: [pi]
 
-  PLAY RECAP *************************************************************************************************************************************************************************************
-  pi                         : ok=7    changed=1    unreachable=0    failed=0
+  TASK [Ensure SSH is configured with supported encryption methods] ******************************************************
+  changed: [pi]
+
+  PLAY RECAP **************************************************************************************************************************
+  pi                         : ok=7    changed=2    unreachable=0    failed=0
   ```
 
 ## Task 8.2: Inventory aanpassen
