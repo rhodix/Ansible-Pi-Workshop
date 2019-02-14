@@ -188,7 +188,31 @@ De task van je playbook ziet er dan zo uit:
 **Tip:** Mocht er onverhoopt wat mis zijn gegaan, download dan het playbook via: https://raw.githubusercontent.com/rhodix/Ransible-Pi-Workshop/master/downloads/brocade.yml.
 
 ## Task 8.5: Controleer het resultaat
-Is het je opgevallen dat je nog niet bent ingelogd op de switch?
+Is het je opgevallen dat je nog niet bent ingelogd op de switch? Met SSH kun je inloggen op de switch. Via het commando ``show running-config`` kun je het resultaat controleren:
 
+* Log in op de switch (vervang <ip address> door het IP adres van de switch):
+
+  ``$ ssh -l workshop <ip address>``
   
+  ```
+  Password:
+  SSH@test-switch-02#
+  ```
+
+* Controleer de configuratie:
+
+  ``# show running-config``
+  
+  ```
+  ...
+  vlan 350 by port
+   untagged ethe 1/1/10
+  !
+  vlan 351 by port
+   untagged ethe 1/1/11 to 1/1/12
+  ...
+  snmp-server contact ansible@demo.local
+  snmp-server location Demorack
+  ...
+  ```
   
