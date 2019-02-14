@@ -137,4 +137,41 @@ De task van je playbook ziet er dan zo uit:
 **Tip:** Mocht er onverhoopt wat mis zijn gegaan, download dan het playbook via: https://raw.githubusercontent.com/rhodix/Ransible-Pi-Workshop/master/downloads/cisco.yml.
 
 ## Task 7.5: Controleer het resultaat
+Is het je opgevallen dat je nog niet bent ingelogd op de switch? Met SSH kun je inloggen op de switch. Via het commando ``show running-config`` kun je het resultaat controleren:
 
+* Log in op de switch (vervang <ip address> door het IP adres van de switch):
+
+  ``$ ssh -l workshop <ip address>``
+  
+  ```
+  Dit is een demo switch
+  Password:
+
+  test-switch-01#  
+  ```
+
+* Controleer de configuratie:
+
+  ```
+  ...
+  !
+  interface FastEthernet0/10  
+   switchport access vlan 350
+   switchport mode access
+  !
+  interface FastEthernet0/11
+   switchport access vlan 350
+   switchport mode access
+  !
+  interface FastEthernet0/12
+   switchport access vlan 351
+   switchport mode access
+  !
+  ...
+  !
+  banner login ^C
+  Dit is een demo switch
+  ^C
+  !
+  ...
+  ```
