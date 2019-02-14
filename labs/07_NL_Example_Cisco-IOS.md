@@ -152,6 +152,8 @@ Is het je opgevallen dat je nog niet bent ingelogd op de switch? Met SSH kun je 
 
 * Controleer de configuratie:
 
+  ``# show running-config``
+
   ```
   ...
   !
