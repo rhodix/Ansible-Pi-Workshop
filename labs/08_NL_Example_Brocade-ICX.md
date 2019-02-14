@@ -134,7 +134,7 @@ In het volgende playbook gaan we switchpoorten en vlans configureren.
 * Vul het playbook aan met (zet tussen ``remote_user`` en ``tasks``):
 
   ```
-      vars:
+    vars:
       switchport:
         vlan: 350
         port: 1/1/10
