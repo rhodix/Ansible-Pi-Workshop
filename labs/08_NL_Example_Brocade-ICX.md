@@ -7,7 +7,7 @@ De modules voor Brocade switches (Ironware) zijn helaas niet zo uitgebreid als m
 
 Toch kan het nuttig zijn om de configuratie van je switch te automatiseren. Een playbook zou op de switch een vlan aan kunnen maken, vervolgens in de virtualisatie infrastructuur dit vlan aanmaken in de vSwitch en vervolgens een VM in dit netwerk kunnen zetten.
 
-## Task 8.1: Bug in Ansible module oplossen
+## Task 8.1: Bug in Ansible module oplossen en SSH configureren
 Helaas zit er een bug in de Ansible module ``ironware_config``. Voordat we de Brocade ICX switch kunnen configureren moeten we eerst een bug herstellen. Zorg er voor dat je ingelogd bent op de SSH server (en nog niet op je Raspberry Pi).
 
 * Maak de directory ``files`` aan:
@@ -27,6 +27,22 @@ Helaas zit er een bug in de Ansible module ``ironware_config``. Voordat we de Br
           dest: /opt/ansible/lib/ansible/plugins/terminal/ironware.py
   ```
 
+Verder ondersteund de switch helaas de laatste encryptie methodes voor SSH nog niet. 
+
+* Vul je playbook aan met:
+  
+  ```
+      - name: Ensure SSH is configured with supported encryption methods
+        blockinfile:
+          path: ~/.ssh/config
+          block: |
+            Host 172.17.16.*
+              KexAlgorithms +diffie-hellman-group1-sha1
+          create: Yes
+        become: false
+  ```  
+  **Tip:** De SSH configuratie moet in het account van de user ``pi`` uitgevoerd worden. Het playbook wordt echter door ``become: true`` als root uitgevoerd. In de task voor SSH zetten we ``become`` tijdelijk op ``false``, zodat de taak voor het account ``pi`` wordt uitgevoerd.
+  
 * Start je playbook:
   
   ``$ ansible-playbook workshop.yml``
