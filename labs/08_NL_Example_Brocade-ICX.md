@@ -78,6 +78,12 @@ Voer deze task uit op je Raspberry Pi.
   ```
 
 ## Task 8.3: Playbook maken
+Een simpel voorbeeld om mee te starten is het configureren van SNMP. Daarvoor moeten de volgende 2 regels in de switch worden configureerd:
+
+```
+snmp-server contact ansible@demo.local
+snmp-server location Demorack
+```
 
 * Maak het playbook ``brocade.yml``:
 
@@ -88,11 +94,6 @@ Voer deze task uit op je Raspberry Pi.
     gather_facts: false
     remote_user: workshop
 
-    vars:
-      switchport:
-        vlan: 350
-        port: 1/1/10
-
     tasks:
 
     - name: Configure SNMP
@@ -100,7 +101,26 @@ Voer deze task uit op je Raspberry Pi.
         lines:
           - snmp-server contact ansible@demo.local
           - snmp-server location Demorack
+  ```
 
+* Voer je playbook uit:
+
+  ``$ ansible-playbook brocade.yml --ask-pass``
+  
+**Tip:** Voor het configureren van poorten in VLANs gebruiken we een variable: ``switchport``. Deze variable heeft 2 sub-elements: ``vlan`` en ``port``. In Ansible kun je deze variablen gebruiken door ze tussen een ``{`` en ``}`` te zetten. Als je variablen gebruikt moet de hele waarde genoteerd worden tussen double-quotes: ``"``
+  
+* Vul het playbook aan met (zet tussen ``remote_user`` en ``tasks``):
+
+  ```
+      vars:
+      switchport:
+        vlan: 350
+        port: 1/1/10
+  ```
+
+* Maak de tasks aan (in het einde van je playbook):
+
+  ```
     - name: "Create VLAN {{ switchport.vlan }}"
       ironware_config:
         lines:
@@ -111,5 +131,25 @@ Voer deze task uit op je Raspberry Pi.
         lines:
           - "untagged ethernet {{ switchport.port }}"
         parents: ["vlan {{ switchport.vlan }} by port"]
+
   ```
 
+  * Voer je playbook uit:
+    ``$ ansible-playbook brocade.yml --ask-pass``
+
+Het toevoegen van een VLAN, of meerdere poorten aan een VLAN, is nu een kwestie van aanpassen van de variable en het playbook opnieuw starten:
+
+  * Zet switchpoort 1/1/11 in vlan 351, door de variable aan te passen en het playbook opnieuw te starten.
+  * Voeg switchpoort 1/1/12 ook toe aan vlan 351.
+  
+## Task 8.4: Controleer het resultaat
+Is het je opgevallen dat je nog niet bent ingelogd op de switch? Wanneer je de hele configuratie vanuit Ansible zou doen, kun je zelfs het playbook gebruiken voor disaster recovery. Bij problemen sluit je gewoon een nieuwe switch aan en draai je het playbook. 
+
+In de praktijk zul je met variable lijsten werken, om alle poorten in 1 play in het juiste VLAN te zetten. 
+
+
+  
+
+
+  
+  
