@@ -80,7 +80,7 @@ In het volgende playbook gaan we switchpoorten en vlans configureren.
     vars:
       switchport:
         vlan: 350
-        port: 1/1/10
+        port: 0/10
   ```
 
 * Maak de tasks aan (in het einde van je playbook):
@@ -99,5 +99,22 @@ In het volgende playbook gaan we switchpoorten en vlans configureren.
           - "FastEthernet{{ switchport.port }}"
   ```
 
-  * Voer je playbook uit:
-    ``$ ansible-playbook cisco.yml --ask-pass``
+* Voer je playbook uit:
+  ``$ ansible-playbook cisco.yml --ask-pass``
+
+Het toevoegen van een VLAN, of meerdere poorten aan een VLAN, is nu een kwestie van aanpassen van de variable en het playbook opnieuw starten:
+
+* Zet switchpoort 0/11 in vlan 351, door de variable aan te passen en het playbook opnieuw te starten.
+* Voeg switchpoort 0/12 ook toe aan vlan 351.
+  
+## Task 7.4: Variable list
+Wanneer je de hele configuratie vanuit Ansible zou doen, kun je zelfs het playbook gebruiken voor disaster recovery. Bij problemen sluit je gewoon een nieuwe switch aan en draai je het playbook. Het zou daarbij natuurlijk wel handiger zijn om een lijst met poorten en vlans te hebben, in plaats van steeds het playbook met het juiste vlan aan te moeten passen. In de praktijk zul je daarom vaak met variable lijsten werken, om alle poorten in 1 play in het juiste VLAN te zetten. 
+
+```
+  vars:
+    switchports:
+      - { port: 0/10, vlan: 350 }
+      - { port: 0/11, vlan: 351 }
+      - { port: 0/12, vlan: 351 }
+```
+  
