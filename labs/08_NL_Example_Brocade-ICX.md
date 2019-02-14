@@ -96,7 +96,7 @@ Voer deze task uit op je Raspberry Pi.
   host_key_checking = False
   ```
 
-## Task 8.3: Playbook maken
+## Task 8.3: Playbook maken - SNMP configureren
 Een simpel voorbeeld om mee te starten is het configureren van SNMP. Daarvoor moeten de volgende 2 regels in de switch worden configureerd:
 
 ```
@@ -125,7 +125,10 @@ snmp-server location Demorack
 * Voer je playbook uit:
 
   ``$ ansible-playbook brocade.yml --ask-pass``
-  
+
+## Task 8.4: Playbook maken - Switchpoorten en VLANs configureren
+In het volgende playbook gaan we switchpoorten en vlans configureren.
+
 **Tip:** Voor het configureren van poorten in VLANs gebruiken we een variable: ``switchport``. Deze variable heeft 2 sub-elements: ``vlan`` en ``port``. In Ansible kun je deze variablen gebruiken door ze tussen een ``{`` en ``}`` te zetten. Als je variablen gebruikt moet de hele waarde genoteerd worden tussen double-quotes: ``"``
   
 * Vul het playbook aan met (zet tussen ``remote_user`` en ``tasks``):
@@ -161,7 +164,7 @@ Het toevoegen van een VLAN, of meerdere poorten aan een VLAN, is nu een kwestie 
   * Zet switchpoort 1/1/11 in vlan 351, door de variable aan te passen en het playbook opnieuw te starten.
   * Voeg switchpoort 1/1/12 ook toe aan vlan 351.
   
-## Task 8.4: Variable list
+## Task 8.5: Variable list
 Wanneer je de hele configuratie vanuit Ansible zou doen, kun je zelfs het playbook gebruiken voor disaster recovery. Bij problemen sluit je gewoon een nieuwe switch aan en draai je het playbook. Het zou daarbij natuurlijk wel handiger zijn om een lijst met poorten en vlans te hebben, in plaats van steeds het playbook met het juiste vlan aan te moeten passen. In de praktijk zul je daarom vaak met variable lijsten werken, om alle poorten in 1 play in het juiste VLAN te zetten. 
 
 ```
@@ -187,7 +190,7 @@ De task van je playbook ziet er dan zo uit:
 
 **Tip:** Mocht er onverhoopt wat mis zijn gegaan, download dan het playbook via: https://raw.githubusercontent.com/rhodix/Ransible-Pi-Workshop/master/downloads/brocade.yml.
 
-## Task 8.5: Controleer het resultaat
+## Task 8.6: Controleer het resultaat
 Is het je opgevallen dat je nog niet bent ingelogd op de switch? Met SSH kun je inloggen op de switch. Via het commando ``show running-config`` kun je het resultaat controleren:
 
 * Log in op de switch (vervang <ip address> door het IP adres van de switch):
