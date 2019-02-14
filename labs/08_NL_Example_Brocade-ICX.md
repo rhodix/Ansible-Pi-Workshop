@@ -79,4 +79,37 @@ Voer deze task uit op je Raspberry Pi.
 
 ## Task 8.3: Playbook maken
 
+* Maak het playbook ``brocade.yml``:
+
+  ```
+  ---
+  - hosts: switches
+    connection: local
+    gather_facts: false
+    remote_user: workshop
+
+    vars:
+      switchport:
+        vlan: 350
+        port: 1/1/10
+
+    tasks:
+
+    - name: Configure SNMP
+      ironware_config:
+        lines:
+          - snmp-server contact ansible@demo.local
+          - snmp-server location Demorack
+
+    - name: "Create VLAN {{ switchport.vlan }}"
+      ironware_config:
+        lines:
+          - "vlan {{ switchport.vlan }} by port"
+
+    - name: "Add port {{ switchport.port}} to VLAN {{ switchport.vlan }}"
+      ironware_config:
+        lines:
+          - "untagged ethernet {{ switchport.port }}"
+        parents: ["vlan {{ switchport.vlan }} by port"]
+  ```
 
