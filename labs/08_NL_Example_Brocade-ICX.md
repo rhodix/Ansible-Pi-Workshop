@@ -54,7 +54,7 @@ Voer deze task uit op je Raspberry Pi.
 
 * Maak een inventory file:
 
-``$ vi inventory``
+  ``$ vi inventory``
 
 * Vul de inventory file met (vervang <ipaddress> door het IP adres van de switch:
 
@@ -65,7 +65,7 @@ Voer deze task uit op je Raspberry Pi.
 
 * Maak een ansible.cfg aan:
 
-``$ vi ansible.cfg``
+  ``$ vi ansible.cfg``
 
 * Vul de ansible.cfg met:
 
@@ -76,8 +76,6 @@ Voer deze task uit op je Raspberry Pi.
   
   host_key_checking = False
   ```
-
-
 
 ## Task 8.3: Playbook maken
 
