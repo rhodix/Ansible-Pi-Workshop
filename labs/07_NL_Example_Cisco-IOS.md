@@ -42,3 +42,29 @@ Voer deze task uit op je Raspberry Pi.
   
   host_key_checking = False
   ```
+
+## Task 7.2: Playbook maken
+Een simpel voorbeeld om mee te starten is het configureren van de inlog banner.
+
+* Maak het playbook ``cisco.yml``:
+
+  ```
+  ---
+  - hosts: switches
+    connection: local
+    gather_facts: false
+    remote_user: workshop
+
+    tasks:
+    - name: Configure banner
+      ios_banner:
+        banner: login
+        text: |
+          Dit is een demo switch
+        state: present
+  ```
+  
+* Voer je playbook uit:
+
+  ``$ ansible-playbook cisco.yml --ask-pass``
+  
