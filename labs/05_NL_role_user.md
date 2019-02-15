@@ -38,7 +38,7 @@ Een beschrijving van de onderdelen van een role vind je terug in de documentatie
 ## Task 5.2: Password hash genereren
 De ``user`` module verwacht het wachtwoord in SHA512 formaat. 
 
-* Je kunt Ansible gebruiken om een SHA512 hash te genereren (vervang <WorkshopPassword> door een eigen wachtwoord):
+* Je kunt Ansible gebruiken om een SHA512 hash te genereren (vervang ``<WorkshopPassword>`` door een eigen wachtwoord):
 
   ``$ ansible all -i localhost, -m debug -a "msg={{ '<WorkshopPassword>' | password_hash('sha512') }}"``
 
