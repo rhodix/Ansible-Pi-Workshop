@@ -83,7 +83,7 @@ De ``user`` module verwacht het wachtwoord in SHA512 formaat.
   $
   ```
 
-# Praktijk voorbeeld.
+# Praktijk voorbeeld
 In de praktijk plaats je de variablen in files die je defineerd in je playbook (zie: https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html). Voor webservers zou je een file ``webserver_vars.yml`` kunnen maken, met daarin een beschrijving van de ``accounts``, ``databases`` en ``virtual_hosts``. Het playbook zou dan (fictief) bestaan uit 3 roles: ``accounts``,``mysql`` en ``apache``.
 
 Onderstaand is slechts een voorbeeld:
