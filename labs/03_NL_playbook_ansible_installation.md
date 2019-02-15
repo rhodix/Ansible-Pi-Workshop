@@ -25,7 +25,6 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
           - python-jinja2
           - python-yaml
           - python-paramiko
-          - python-yaml
           - python-cryptography
           - python-setuptools
           - sshpass
