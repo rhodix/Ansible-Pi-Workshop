@@ -28,6 +28,7 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
          - python-cryptography
          - python-setuptools
          - sshpass
+         - git
   ```
   
 **Tip:** In Ansible kun je werken met variablen. Variablen worden altijd genoteerd tussen {{ en }}. Als je variablen gebruikt moet de hele waarde genoteerd worden tussen double-quotes: ". In de variable ``packages`` in het bovenstaande playbook is een lijst gemaakt. De onderdelen van deze lijst start je in Ansible gewoon met een -. Zo ontstaat een leesbare lijst.
