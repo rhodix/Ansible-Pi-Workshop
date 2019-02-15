@@ -25,7 +25,7 @@ Verder is de Raspberry up-to-date gebracht met het commando: ``apt-get dist-upgr
 ## Workshop aanpassingen
 De workshop heeft een open karakter. Mocht je issues vinden of verbeteringen aan willen dragen (en je hebt ervaring met Github), maak dan een gerust een ``Pull-request`` met je wijzigingen!
 
-## Uitvoeren
+## Uitvoering
 - Alle acties worden uitgevoerd vanuit de home directory van de SSH server (tenzij anders aangegeven).
 - Instructies voor commando's worden vooraf gegaan met een prompt teken ($) en staan in een tekst blok. Dit teken is onderdeel van de opdracht prompt en hoort niet bij het commando (wie kent de dos prompt ``C:\>`` nog?). Bijvoorbeeld (Het commando in het voorbeeld is dus ``ls``):
 
