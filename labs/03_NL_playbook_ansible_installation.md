@@ -36,11 +36,18 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
 
   ``$ ansible-playbook workshop.yml``
 
-Het playbook faalt:
+**Het playbook faalt:**
 
 ```
 TASK [Install a list of packages] **********************************************************************************************
-fatal: [pi]: FAILED! => {"changed": false, "msg": "'/usr/bin/apt-mark manual ieee-data python-netaddr python-kerberos python-selinux python-xmltodict python-httplib2 python-jinja2 python-yaml python-paramiko python-yaml python-cryptography python-setuptools sshpass' failed: E: Could not create temporary file for /var/lib/apt/extended_states - mkstemp (13: Permission denied)\nE: Failed to write temporary StateFile /var/lib/apt/extended_states\n", "rc": 100, "stderr": "E: Could not create temporary file for /var/lib/apt/extended_states - mkstemp (13: Permission denied)\nE: Failed to write temporary StateFile /var/lib/apt/extended_stat
+fatal: [pi]: FAILED! => {"cache_update_time": 1549370348, "cache_updated": false, "changed": false, "msg": "'/usr/bin/apt-get
+-y -o \"Dpkg::Options::=--force-confdef\" -o \"Dpkg::Options::=--force-confold\"     install 'ieee-data' 'python-netaddr' 
+'python-kerberos' 'python-selinux' 'python-xmltodict' 'python-httplib2' 'python-jinja2' 'python-yaml' 'python-paramiko' 
+'python-cryptography' 'python-setuptools' 'sshpass'' failed: E: Could not open lock file /var/lib/dpkg/lock - open (13: 
+Permission denied)\nE: Unable to lock the administration directory (/var/lib/dpkg/), are you root?\n", "rc": 100, "stderr":
+"E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)\nE: Unable to lock the administration directory 
+(/var/lib/dpkg/), are you root?\n", "stderr_lines": ["E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission 
+denied)", "E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?"], "stdout": "", "stdout_lines": []}
 ```
 
 Als je goed kijkt naar de foutmeldingen, dan lijkt het er op dat er een rechten probleem is. Wanneer je de packages met ``apt-get`` zou installeren, zou je daar ``sudo`` voor gebruiken. Met Ansible is dat eigenlijk niet anders. Om de packages te installeren, zullen we Ansible moeten instrueren om ``sudo`` te gebruiken
