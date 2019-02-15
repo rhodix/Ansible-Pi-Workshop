@@ -68,3 +68,5 @@ raspberry | SUCCESS => {
 In de inventory file hebben we de groep [workshop] gedefineerd. De ``ping`` module zal daarom alle hosts controleren. In ons lab hebben we maar 1 host gedefineerd: ``pi``. Als we meerdere hosts in de groep hadden gezet, zouden alle hosts antwoorden. 
 
 **Tip:** Het is ook mogelijk om een enkele host te testen. Met ``ansible -k -m ping pi`` wordt de module alleen maar op de host ``pi`` uitgevoerd.
+
+Volgende stap: https://github.com/rhodix/Ransible-Pi-Workshop/blob/master/labs/02_NL_playbook_user.md
