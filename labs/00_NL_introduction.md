@@ -5,6 +5,7 @@ De workshop is zo opgezet, dat deze vanuit thuis (of op je werk) verder afgemaak
 
 ## Benodigdheden
 Voor deze workshop heb je nodig:
+- Laptop met een SSH client (bijvoorbeeld putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - Een Linux server met SSH toegang en Ansible
 - Een Raspberry Pi
 - Sheet met account gegevens
