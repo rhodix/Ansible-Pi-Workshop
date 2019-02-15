@@ -118,6 +118,5 @@ playbook.yml:
     - role: apache
 ```
 
-
-
+Het variable bestand beschrijft precies hoe de webservers er uit moeten zien en het playbook wordt ineens een stuk overzichtelijker.
   
