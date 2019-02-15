@@ -20,3 +20,6 @@ Om de workshop wat vloeiender te kunnen laten verlopen is het volgende aangepast
 - Locale settings (Language, keyboard etc)
 
 Verder is de Raspberry up-to-date gebracht met het commando: ``apt-get dist-upgrade``.
+
+## Workshop aanpassingen
+De workshop heeft een open karakter. Mocht je issues vinden of verbeteringen aan willen dragen (en je hebt ervaring met Github), maak dan een gerust een ``Pull-request`` met je wijzigingen!
