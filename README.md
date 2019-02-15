@@ -1,5 +1,5 @@
 # Ransible-Pi-Workshop
-Dit lab is gebaseerd op Ansible 2.7. In dit lab wordt een Raspberry Pi zodanig ingericht, dat deze als Ansible (core) server gebruikt kan wordent.
+Dit lab is gebaseerd op Ansible 2.7. In dit lab wordt een Raspberry Pi zodanig ingericht, dat deze als Ansible (core) server gebruikt kan worden.
 
 ## Contents
 
