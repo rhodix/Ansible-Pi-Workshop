@@ -72,6 +72,16 @@ De ``user`` module verwacht het wachtwoord in SHA512 formaat.
 * Voer het playbook uit:
 
   ``$ ansible-playbook workshop-role.yml``
+  
+* Controleer of de user is aangemaakt (vervang <ip address> door het IP adres van je Raspberry Pi):
+
+  ``$ ssh -l workshop <ip address>``
+  
+  ```
+  workshop@raspberry's password: 
+  Linux raspberry 4.9.0-8-amd64 #1 SMP Debian 4.9.130-2 (2018-10-27) x86_64
+  $
+  ```
 
 # Praktijk voorbeeld.
 In de praktijk plaats je de variablen in files die je defineerd in je playbook (zie: https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html). Voor webservers zou je een file ``webserver_vars.yml`` kunnen maken, met daarin een beschrijving van de ``accounts``, ``databases`` en ``virtual_hosts``. Het playbook zou dan (fictief) bestaan uit 3 roles: ``accounts``,``mysql`` en ``apache``.
