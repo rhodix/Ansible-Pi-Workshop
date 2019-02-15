@@ -68,8 +68,9 @@ De ``user`` module verwacht het wachtwoord in SHA512 formaat.
 * Voer het playbook uit:
 
   ``$ ansible-playbook workshop-role.yml``
-  
-In de praktijk plaats je de variablen in files die je defineerd in je playbook. Voor webservers zou je een file ``webserver_vars.yml`` kunnen maken, met daarin een beschrijving van de ``accounts``, ``databases`` en ``virtual_hosts``. Het playbook zou dan (fictief) bestaan uit 3 roles: ``accounts``,``mysql`` en ``apache``.
+
+# Praktijk voorbeeld.
+In de praktijk plaats je de variablen in files die je defineerd in je playbook (zie: https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html). Voor webservers zou je een file ``webserver_vars.yml`` kunnen maken, met daarin een beschrijving van de ``accounts``, ``databases`` en ``virtual_hosts``. Het playbook zou dan (fictief) bestaan uit 3 roles: ``accounts``,``mysql`` en ``apache``.
 
 webserver_vars.yml:
 
