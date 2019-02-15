@@ -27,6 +27,10 @@ De role wordt geïnstalleerd naar de ``.ansible/roles`` directory in je home dir
   
   ``$ ls``
   
+  ```
+  defaults  docs  meta  tasks  tests
+  ```
+  
 Een beschrijving van de onderdelen van een role vind je terug in de documentatie van Ansible op: https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html.
 
 **Tip:** Het vervolg van de workshop wordt vanuit je home directory uitgevoerd. Ga terug naar je home directory met het commando: ``$ cd``.
