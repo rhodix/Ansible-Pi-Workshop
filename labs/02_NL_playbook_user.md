@@ -39,7 +39,7 @@ De file ``id_rsa.pub`` is de public key. De file ``id_rsa`` is de private key. M
          - ".ssh/id_rsa.pub"
   ```
 
-**Tip:** Playbooks werken met Yaml files. Voor de werking van Yaml files is het belangrijk dat het inspringen van de regels nauwkeurig gebeurd. Dit kan met tabs, maar het is gebruikelijker om dit met 2 (of 4) spaties te doen. Als je ooit met Python hebt gewerkt, dan zul je dit herkennen. 
+**Tip:** Playbooks werken met Yaml files. Voor de werking van Yaml files is het belangrijk dat het inspringen van de regels nauwkeurig gebeurd. Het is gebruikelijk om dit met 2 (of 4) spaties te doen. Als je ooit met Python hebt gewerkt, dan zul je dit herkennen. 
 
 Als het goed is, valt op dat het playbook redelijk leesbaar is. Zelfs zonder kennis van Ansible is redelijk in te schatten wat dit playbook uit zal voeren. De samenvatting:
 * Het playbook zal uitgevoerd worden op alle clients in de groep ``workshop``.
