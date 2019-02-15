@@ -27,9 +27,9 @@ De workshop heeft een open karakter. Mocht je issues vinden of verbeteringen aan
 
 ## Uitvoeren
 - Alle acties worden uitgevoerd vanuit de home directory van de SSH server (tenzij anders aangegeven).
-- Instructies voor commando's worden vooraf gegaan met een prompt teken ($) en staan in een tekst blok. Dit teken is onderdeel van de opdracht prompt en hoort niet bij het commando (wie kent de dos prompt ``C:\>`` nog?). Bijvoorbeeld:
+- Instructies voor commando's worden vooraf gegaan met een prompt teken ($) en staan in een tekst blok. Dit teken is onderdeel van de opdracht prompt en hoort niet bij het commando (wie kent de dos prompt ``C:\>`` nog?). Bijvoorbeeld (Het commando in het voorbeeld is dus ``ls``):
 
-``$ ls``
+  ``$ ls``
   
 - De output wordt ook in een tekstblok weergegeven. Bijvoorbeeld:
   ```
