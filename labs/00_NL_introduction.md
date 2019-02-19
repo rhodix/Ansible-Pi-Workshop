@@ -28,3 +28,4 @@ Elke Raspberry heeft een kleur codering rechtsboven. Controleer of de kleur code
   ```
 
   
+[Inventory file aanmaken](labs/01_NL_inventory.md)
