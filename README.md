@@ -3,7 +3,7 @@ Dit lab is gebaseerd op Ansible 2.7. In dit lab wordt een Raspberry Pi zodanig i
 
 ## Contents
 
-- [Introduction](labs/00_NL_introduction.md)
+0. [Introductie](labs/00_NL_introduction.md)
 1. [Inventory file aanmaken](labs/01_NL_inventory.md)
 2. [Playbook - User aanmaken](labs/02_NL_playbook_user.md)
 3. [Playbook - Installatie Ansible](labs/03_NL_playbook_ansible_installation.md)
