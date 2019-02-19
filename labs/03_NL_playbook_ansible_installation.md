@@ -92,7 +92,7 @@ Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar
          dest: /opt/ansible
   ```
 
-**Tip:** Controleer altijd de handleiding van Ansible om je playbook nog slimmer te maken. In deze stap gebruiken we de parameter ``version`` om een specifieke versie te selecteren om via git te downloaden.
+**Tip:** Controleer altijd de handleiding van Ansible om je playbook nog slimmer te maken. Voor de gebruikte ``git`` module staat deze op: https://docs.ansible.com/ansible/latest/modules/git_module.html. In deze stap gebruiken we de parameter ``version`` om een specifieke versie te selecteren om via git te downloaden.
 
 * Start het playbook.
 
