@@ -69,4 +69,4 @@ In de inventory file hebben we de groep [workshop] gedefineerd. De ``ping`` modu
 
 **Tip:** Het is ook mogelijk om een enkele host te testen. Met ``ansible -k -m ping pi`` wordt de module alleen maar op de host ``pi`` uitgevoerd.
 
-Volgende stap: [Lab 02: Playbook - User aanmaken](labs/02_NL_playbook_user.md)
+Volgende stap: [Lab 02: Playbook - User aanmaken](/labs/02_NL_playbook_user.md)
