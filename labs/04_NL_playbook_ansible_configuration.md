@@ -74,3 +74,4 @@ pi                         : ok=6    changed=0    unreachable=0    failed=0
   ```
   
    
+Volgende stap: [Lab 5 - Role - User aanmaken](/labs/05_NL_role_user.md)
