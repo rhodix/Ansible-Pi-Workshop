@@ -13,3 +13,4 @@ Dit lab is gebaseerd op Ansible 2.7. In dit lab wordt een Raspberry Pi zodanig i
 7. [Example - Cisco IOS switch](labs/07_NL_Example_Cisco-IOS.md)
 8. [Example - Brocade ICX switch](labs/08_NL_Example_Brocade-ICX.md)
 
+- [Workshop thuis of op kantoor afmaken](labs/99_NL_Workshop_afmaken.md)
