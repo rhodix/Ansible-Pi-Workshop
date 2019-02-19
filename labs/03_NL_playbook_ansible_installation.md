@@ -97,3 +97,5 @@ Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar
 * Start het playbook.
 
   ``$ ansible-playbook workshop.yml``
+
+Volgende stap: [Lab 4 - Playbook - Configuratie Ansible](/labs/04_NL_playbook_ansible_configuration.md)
