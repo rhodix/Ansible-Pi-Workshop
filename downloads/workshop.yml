@@ -30,6 +30,7 @@
         - python-cryptography
         - python-setuptools
         - sshpass
+        - git
 
     - name: "Ensure ansible is installed"
       git:
