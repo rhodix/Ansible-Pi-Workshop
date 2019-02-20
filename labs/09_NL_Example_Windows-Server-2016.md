@@ -122,6 +122,17 @@ Bijna elke Linux distributie heeft wel een package manager. Voor Debian variante
     ``$ ansible-playbook windows.yml --ask-pass``
     
     ```
-    
+    TASK [Install packages with Chocolatey] **************************************************
+    changed: [windows-01] => (item=adobereader)
+    changed: [windows-01] => (item=putty)
+    changed: [windows-01] => (item=windirstat)
+    changed: [windows-01] => (item=googlechrome)
+     [WARNING]: Chocolatey was missing from this system, so it was installed during this task run.
+
+    PLAY RECAP *******************************************************************************
+    windows-01                 : ok=3    changed=1    unreachable=0    failed=0
     ```
   
+**Tip:** Chocolaty is standaard niet geïnstalleerd. De module ``win_chocolatey`` installeerd automatisch Chocolatey. Omdat dit nog niet geïnstalleerd was, krijg je de warning ``Chocolatey was missing from this system, so it was installed during this task run.``
+
+## Task 9.5: Windows update
