@@ -134,3 +134,4 @@ Voer deze task uit op je Raspberry Pi.
 
   ``$ ansible-playbook linux.yml -k``
   
+* Open in je browser de url ``http://<ip address>`` (vervang ``<ip address>`` door het IP adres van de Linux server.
