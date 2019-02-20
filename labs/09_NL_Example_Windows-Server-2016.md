@@ -47,3 +47,9 @@ Voer deze task uit op je Raspberry Pi.
   host_key_checking = False
   ```
 
+## Task 9.2: Verbinding testen
+
+Waar je voor Linux de module ``ping`` zou gebruiken, moet je voor Windows de module ``win_ping`` gebruiken. De werking is verder hetzelfde:
+
+
+
