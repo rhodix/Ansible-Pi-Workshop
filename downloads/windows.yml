@@ -1,0 +1,20 @@
+---
+- hosts: windows
+
+  tasks:
+    - name: Install IIS Web-Server with sub features and management tools
+      win_feature:
+        name:
+        - Web-Server
+        include_sub_features: yes
+        include_management_tools: yes
+
+    - name: Install packages with Chocolatey
+      win_chocolatey:
+        name: '{{ item }}'
+      with_items:
+      - adobereader
+      - putty
+      - windirstat
+      - googlechrome
+
