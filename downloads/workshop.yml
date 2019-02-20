@@ -12,7 +12,7 @@
       with_file:
         - ".ssh/id_rsa.pub"
 
-    - name: Install a list of packages
+    - name: "Ensure all dependancies are installed"
       apt:
         name: "{{ packages }}"
       vars:
@@ -26,24 +26,27 @@
         - python-jinja2
         - python-yaml
         - python-paramiko
-        - python-yaml
         - python-cryptography
         - python-setuptools
         - sshpass
         - git
-
+        
+    - name: "Ensure pip modules are installed"
+      pip:
+        name: pywinrm
+       
     - name: "Ensure ansible is installed"
       git:
         repo: "git://github.com/ansible/ansible.git"
         version: v2.7.6
         dest: /opt/ansible
 
-    - name: Ensure ansible is configured
+    - name: "Ensure ansible is configured"
       command: /bin/sh /opt/ansible/hacking/env-setup
       args:
         creates: /opt/ansible/lib/ansible.egg-info/requires.txt
 
-    - name: Ensure ansible variables are set in bashrc
+    - name: "Ensure ansible variables are set in bashrc"
       blockinfile:
         path: /etc/bash.bashrc
         block: |
