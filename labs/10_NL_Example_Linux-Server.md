@@ -61,6 +61,8 @@ Voer deze task uit op je Raspberry Pi.
   ```
   ---
   - hosts: linux
+    become: true
+    become_method: sudo
 
     tasks:
       - name: Install apache packages
