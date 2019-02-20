@@ -77,20 +77,57 @@ Voer deze task uit op je Raspberry Pi.
 
   ``$ ansible-playbook linux.yml -k``
   
- ## Task 9.4: Firewall configureren
+## Task 9.4: Firewall configureren
  
- * Pas het playbook ``linux.yml`` aan:
+* Pas het playbook ``linux.yml`` aan:
  
-   ```
-       - name: Ensure port 80 is open for http access
-         firewalld:
-           service: http
-           permanent: true
+  ```
+      - name: Ensure port 80 is open for http access
+        firewalld:
+          service: http
+          permanent: true
 
-       - name: Ensure firewalld service is restarted after the firewall changes
-         service: 
-           name: firewalld 
-           state: restarted
+      - name: Ensure firewalld service is restarted after the firewall changes
+        service: 
+          name: firewalld 
+          state: restarted
    ```
+
+* Voer het playbook uit:
+
+  ``$ ansible-playbook linux.yml -k``
    
-   
+## Task 9.5: Installeer content voor de webserver
+
+* Maak de directory ``files`` aan:
+  
+  ``$ mkdir files``
+  
+* Maak een HTML file aan met content:
+
+  ``$ vi files/index.html``
+  
+  ```
+  <html>
+    <body>
+      <h1>Hello world</h1>
+    </body>
+  </html>
+  ```
+  
+* Pas het playbook ``linux.yml`` aan:
+
+  ```
+      - name: Ensure content is installed in the webserver
+        copy:
+          src: files/index.html
+          dest: /var/www/html/index.html
+          owner: apache
+          group: apache
+          mode: 0644
+  ```
+    
+* Voer het playbook uit:
+
+  ``$ ansible-playbook linux.yml -k``
+  
