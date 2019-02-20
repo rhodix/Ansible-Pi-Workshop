@@ -1,0 +1,33 @@
+---
+- hosts: linux
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Install apache packages
+      yum:
+        name: httpd
+
+    - name: ensure httpd is running
+      service:
+        name: httpd
+        state: started
+
+    - name: Ensure port 80 is open for http access
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+
+    - name: Ensure firewalld service is restarted after the firewall changes
+      service:
+        name: firewalld
+        state: restarted
+
+    - name: Ensure content is installed in the webserver
+      copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+        owner: apache
+        group: apache
+        mode: 0644
