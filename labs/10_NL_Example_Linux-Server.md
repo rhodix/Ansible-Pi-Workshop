@@ -88,6 +88,7 @@ Voer deze task uit op je Raspberry Pi.
         firewalld:
           service: http
           permanent: true
+          state: enabled
 
       - name: Ensure firewalld service is restarted after the firewall changes
         service: 
