@@ -18,3 +18,8 @@
       - windirstat
       - googlechrome
 
+    - name: Install Windows updates
+      win_updates:
+        category_names:
+        - SecurityUpdates
+        reboot: yes
