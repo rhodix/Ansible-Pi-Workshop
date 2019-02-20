@@ -136,3 +136,19 @@ Bijna elke Linux distributie heeft wel een package manager. Voor Debian variante
 **Tip:** Chocolaty is standaard niet geïnstalleerd. De module ``win_chocolatey`` installeerd automatisch Chocolatey. Omdat dit nog niet geïnstalleerd was, krijg je de warning ``Chocolatey was missing from this system, so it was installed during this task run.``
 
 ## Task 9.5: Windows update
+
+Met Ansible kun je Windows updates geautomatiseerd uitvoeren. In deze workshop gaat het maar om 1 server, maar dit kan natuurlijk op meerdere servers tegelijk. Zelfs automatisch herstarten is mogelijk.
+
+* Vul je playbook ``windows.yml`` aan met:
+
+  ```
+      - name: Install Windows Update
+        win_updates:
+          category_names:
+          - SecurityUpdates
+          reboot: yes
+  ```
+
+* Voer het playbook uit:
+  
+    ``$ ansible-playbook windows.yml --ask-pass``
