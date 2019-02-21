@@ -23,7 +23,7 @@ Voer deze task uit op je Raspberry Pi.
 
   ``$ vi inventory``
 
-* Vul de inventory file met (vervang <ipaddress> door het IP adres van de switch):
+* Vul de inventory file met (vervang ``<ipaddress>`` door het IP adres van de windows server):
 
   ```
   [windows]
