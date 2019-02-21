@@ -73,7 +73,7 @@ De ``user`` module verwacht het wachtwoord in SHA512 formaat.
 
   ``$ ansible-playbook workshop-role.yml``
   
-* Controleer of de user is aangemaakt (vervang <ip address> door het IP adres van je Raspberry Pi):
+* Controleer of de user is aangemaakt (vervang ``<ip address>`` door het IP adres van je Raspberry Pi):
 
   ``$ ssh -l workshop <ip address>``
   
