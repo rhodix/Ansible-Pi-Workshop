@@ -30,11 +30,11 @@
         - python-setuptools
         - sshpass
         - git
-        
+
     - name: "Ensure pip modules are installed"
       pip:
         name: pywinrm
-       
+
     - name: "Ensure ansible is installed"
       git:
         repo: "git://github.com/ansible/ansible.git"
@@ -54,3 +54,8 @@
           export PYTHONPATH=/opt/ansible/lib
           export MANPATH=/opt/ansible/docs/man:$MANPATH
           export ANSIBLE_HOME=~/ansible
+
+    - name: "Ensure foo is copied and decrypted"
+      template:
+        src: foo
+        dest: /home/pi/foo 
