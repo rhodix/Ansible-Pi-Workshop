@@ -10,7 +10,7 @@ In de inventory file wordt beschreven hoe Ansible je Raspberry Pi kan bereiken. 
 
 ``$ vi inventory``
 
-* Vul de inventory file met (vervang <ipaddress> door het IP adres van de Raspberry Pi:
+* Vul de inventory file met (vervang ``<ipaddress>`` door het IP adres van de Raspberry Pi:
 ```
 [workshop]
 pi ansible_host=<ipaddress>
