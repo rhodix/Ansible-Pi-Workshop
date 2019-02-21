@@ -22,7 +22,7 @@ Voer deze task uit op je Raspberry Pi.
 
   ``$ vi inventory``
 
-* Vul de inventory file met (vervang <ipaddress> door het IP adres van de switch):
+* Vul de inventory file met (vervang ``<ipaddress>`` door het IP adres van de switch):
 
   ```
   [linux]
@@ -144,4 +144,4 @@ Met Ansible kun je eenvoudig content kopieën van je Ansible Engine naar de webs
 
   ``$ ansible-playbook linux.yml -k``
   
-* Open in je browser de url ``http://<ip address>`` (vervang ``<ip address>`` door het IP adres van de Linux server).
+* Open in je browser de url ``http://<ip address>`` (vervang ``<ipaddress>`` door het IP adres van de Linux server).
