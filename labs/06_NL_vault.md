@@ -88,9 +88,9 @@ Ansible herkent zelf of een bestand encrypt is en zal deze automatisch decrypten
 
   ``$ ansible-playbook workshop.yml --ask-vault-pass``
 
-* Log in op je Raspberry Pi (vervang ip address door het adres van je Raspberry Pi):
+* Log in op je Raspberry Pi (vervang ``<ipaddress>`` door het adres van je Raspberry Pi):
 
-  ``$ ssh -l pi <ip address>``
+  ``$ ssh -l pi <ipaddress>``
 
 * Controleer of het bestand decrypted op je Pi staat:
 
