@@ -74,4 +74,4 @@
 ## Task 6.5: Encrypted bestand in je playbook gebruiken
 
 
-Volgende stap: [Lab 7 - Example - Cisco IOS switch](/labs/07_NL_Example_Cisco-IOS.md)
+Terug naar: [Inhoudsopgave](/README.md)
