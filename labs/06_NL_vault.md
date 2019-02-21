@@ -73,5 +73,33 @@
 
 ## Task 6.5: Encrypted bestand in je playbook gebruiken
 
+Ansible herkent zelf of een bestand encrypt is en zal deze automatisch decrypten. Dit werkt voor alle modules. Voorwaarde is wel dat het ``vault password`` meegegeven wordt in het ``ansible-playbook`` commando. De parameter daarvoor is ``--ask-vault-pass``.
+
+* Vul je playbook ``workshop.yml`` aan met:
+
+  ```
+      - name: "Ensure foo is copied and decrypted"
+        template:
+          src: foo
+          dest: /home/pi/foo 
+  ```
+
+* Voer je playbook uit (Let er op dat je de parameter ``--ask-vault-pass`` mee geeft):
+
+  ``$ ansible-playbook workshop.yml --ask-vault-pass``
+
+* Log in op je Raspberry Pi (vervang ip address door het adres van je Raspberry Pi):
+
+  ``$ ssh -l pi <ip address>``
+
+* Controleer of het bestand decrypted op je Pi staat:
+
+  ``$ cat foo``
+  
+  ```
+  $ cat foo 
+  <inhoud van het bestand>
+  ```
+
 
 Terug naar: [Inhoudsopgave](/README.md)
