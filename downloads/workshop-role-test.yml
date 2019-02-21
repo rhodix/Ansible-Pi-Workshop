@@ -1,0 +1,14 @@
+---
+- hosts: workshop
+  become: true
+  become_method: sudo
+
+  vars:
+    account_groups:
+      - name: "workshop"
+    account_users:
+      - name: "workshop"
+        password: "$6$uj/GXuBze4eetOeT$ksVseNMTnsRdkVFqUyhlDurXWsTkAOdPuSNOPJtPNnzkmrXzfx753hglmH5M/"
+
+  roles:
+    - role: ontic.account
