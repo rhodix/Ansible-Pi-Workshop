@@ -7,7 +7,7 @@ Om Ansible te kunnen starten uit de git reposistory moet deze geconfigureerd wor
 * Vul je playbook aan met:
 
   ```
-     - name: Ensure ansible is configured
+     - name: "Ensure ansible is configured"
        command: /bin/sh /opt/ansible/hacking/env-setup
        args:
          creates: /opt/ansible/lib/ansible.egg-info/requires.txt
@@ -21,7 +21,7 @@ De laatste stap is het zetten van de environment variablen. Daarnaast voegen we 
 * Vul je playbook aan met:
 
   ```
-     - name: Ensure ansible variables are set in bashrc
+     - name: "Ensure ansible variables are set in bashrc"
        blockinfile:
          path: /etc/bash.bashrc
          block: |
