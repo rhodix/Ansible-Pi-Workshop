@@ -109,4 +109,4 @@ Omdat nu de Authorized key voor SSH op de Raspberry Pi is geïnstalleerd, kun je
 
 Het playbook zal nu geen changes opleveren. De public key is immers al geïnstalleerd. Mocht je later de public key willen vervangen, kun je simpelweg een nieuwe genereren en deze via Ansible opnieuw deployen. Ansible herkent dat het bestand is gewijzigd en zal daarvoor een change genereren.
 
-Volgende stap: [Playbook - Installatie Ansible](/labs/03_NL_playbook_ansible_installation.md)
+Volgende stap: [Lab 3 - Playbook - Installatie Ansible](/labs/03_NL_playbook_ansible_installation.md)
