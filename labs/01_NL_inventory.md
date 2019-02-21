@@ -8,13 +8,14 @@ In de inventory file wordt beschreven hoe Ansible je Raspberry Pi kan bereiken. 
 
 * Edit de file inventory:
 
-``$ vi inventory``
+  ``$ vi inventory``
 
 * Vul de inventory file met (vervang ``<ipaddress>`` door het IP adres van de Raspberry Pi:
-```
-[workshop]
-pi ansible_host=<ipaddress>
-```
+
+  ```
+  [workshop]
+  pi ansible_host=<ipaddress>
+  ```
 
 ## Task 1.2: Ansible vertellen waar de inventory file staat
 Ansible zoekt standaard in de volgende paden naar de inventory file:
@@ -29,16 +30,16 @@ Door een ansible.cfg in dezelfde directory te zetten als het playbook (welke we 
 
 * Maak een ansible.cfg aan:
 
-``$ vi ansible.cfg``
+  ``$ vi ansible.cfg``
 
 * Vul de ansible.cfg met:
-```
-[defaults]
-inventory = ~/inventory
-remote_user = pi
+  ```
+  [defaults]
+  inventory = ~/inventory
+  remote_user = pi
 
-host_key_checking = False
-```
+  host_key_checking = False
+  ```
 
 ## Task 1.3: Test de werking
 Ansible werkt met modules. Voor bijna elke functie is wel een module te vinden. Voor het aanmaken van een gebruiker wordt bijvoorbeeld de module ``user`` gebruikt. In onze eerste stap met Ansible gaan we de module ``ping`` gebruiken. Met de module ``ping`` kun je de verbinding met je clients testen. Anders dan je gewend bent van de ping commando's van je Operating System (bijvoorbeeld Windows of Linux), test de ``ping`` module niet alleen of de client bereikbaar is (icmp reply), maar controleert of Ansible daadwerkelijk in kan loggen op de client (voor Linux clients logt Ansible in met SSH). Zie https://docs.ansible.com/ansible/latest/modules/ping_module.html#ping-module.
@@ -47,22 +48,24 @@ Ansible werkt met modules. Voor bijna elke functie is wel een module te vinden. 
 
 * Controleer of de inventory file en de ansible.cfg in je home directory staan:
 
-``$ ls``
+  ``$ ls``
 
-```
-ansible.cfg  inventory
-```
+  ```
+  ansible.cfg  inventory
+  ```
+  
 * Controleer of de Ansible module ``ping`` antwoord geeft:
 
-``$ ansible -k -m ping workshop``
+  ``$ ansible -k -m ping workshop``
 
-```
-SSH password:
-raspberry | SUCCESS => {
-    "changed": false,
-    "ping": "pong"
-}
-```
+  ```
+  SSH password:
+  raspberry | SUCCESS => {
+      "changed": false,
+      "ping": "pong"
+  }
+  ```
+  
 **Tip:** In ons voorbeeld vraagt Ansible om een SSH password. In een geautomatiseerd scenario is het gebruikelijk om met SSH Autorized Keys te werken. In een later lab richten we de Raspberry Pi in met Autorized keys, zodat Ansible direct, zonder wachtwoord, in kan loggen op de Pi. Omdat we nog geen Authorized keys hebben ingericht, geven we met -k de instructie om een SSH password te vragen.
 
 In de inventory file hebben we de groep [workshop] gedefineerd. De ``ping`` module zal daarom alle hosts controleren. In ons lab hebben we maar 1 host gedefineerd: ``pi``. Als we meerdere hosts in de groep hadden gezet, zouden alle hosts antwoorden. 
