@@ -45,7 +45,7 @@ PLAY RECAP *********************************************************************
 pi                         : ok=6    changed=0    unreachable=0    failed=0
 ```
 
-* Log in op je Raspberry (vervang met het IP adres van je Raspberry Pi):
+* Log in op je Raspberry (vervang ``<ipaddress>`` met het IP adres van je Raspberry Pi):
 
   ``$ ssh -l pi <ipaddress>``
   
