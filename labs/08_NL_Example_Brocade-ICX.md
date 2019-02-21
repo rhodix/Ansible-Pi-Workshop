@@ -75,11 +75,11 @@ Voer deze task uit op je Raspberry Pi.
 
   ``$ vi inventory``
 
-* Vul de inventory file met (vervang <ipaddress> door het IP adres van de switch:
+* Vul de inventory file met (vervang ``<ipaddress>`` door het IP adres van de switch:
 
   ```
   [switches]
-  switch-01 ansible_host=<ip address>
+  switch-01 ansible_host=<ipaddress>
   ```
 
 * Maak een ansible.cfg aan:
@@ -193,9 +193,9 @@ De task van je playbook ziet er dan zo uit:
 ## Task 8.6: Controleer het resultaat
 Is het je opgevallen dat je nog niet bent ingelogd op de switch? Met SSH kun je inloggen op de switch. Via het commando ``show running-config`` kun je het resultaat controleren:
 
-* Log in op de switch (vervang <ip address> door het IP adres van de switch):
+* Log in op de switch (vervang ``<ipaddress>`` door het IP adres van de switch):
 
-  ``$ ssh -l workshop <ip address>``
+  ``$ ssh -l workshop <ipaddress>``
   
   ```
   Password:
