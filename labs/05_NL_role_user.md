@@ -132,3 +132,4 @@ apache_vhosts:
 
 Het variable bestand beschrijft precies hoe de webservers er uit moeten zien en het playbook wordt ineens een stuk overzichtelijker.
   
+Volgende stap: [Lab 6 - Vault - Encryptie gebruiken](/labs/06_NL_vault.md)
