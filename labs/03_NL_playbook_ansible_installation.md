@@ -29,6 +29,7 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
           - python-setuptools
           - sshpass
           - git
+          - pip
           
       - name: "Ensure pip modules are installed"
         pip:
