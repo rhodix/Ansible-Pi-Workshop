@@ -27,9 +27,9 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
           - python-paramiko
           - python-cryptography
           - python-setuptools
+          - python-pip
           - sshpass
           - git
-          - pip
           
       - name: "Ensure pip modules are installed"
         pip:
