@@ -1,5 +1,5 @@
 # Lab 5: Role - User aanmaken
-Voor bijna elke uitdaging is wel een kant-en-klare rol te vinden op Ansible Galaxy. Het nadeel is echter dat er te veel roles te vinden zijn, waardoor het lastig is om de parels te vinden. Let bijvoorbeeld op het aantal downloads en het aantal sterren. Bekijk altijd de broncode van de role die je op Ansible Galaxy hebt gevonden en controleer of deze precies doet wat je zoekt. Indien nodig kun je de role altijd aanpassen.
+Voor bijna elke uitdaging is wel een kant-en-klare rol te vinden op Ansible Galaxy (https://galaxy.ansible.com/). Het nadeel is echter dat er te veel roles te vinden zijn, waardoor het lastig is om de parels te vinden. Let bijvoorbeeld op het aantal downloads en het aantal sterren. Bekijk altijd de broncode van de role die je op Ansible Galaxy hebt gevonden en controleer of deze precies doet wat je zoekt. Indien nodig kun je de role altijd aanpassen.
 
 Bijna alle rollen zijn te sturen met variablen. Deze zijn vaak beschreven in de documentatie van de role. Als de beschrijving ontbreekt kun je in de directory ``defaults`` en in de directory ``vars`` de definitie van de variablen terug vinden.
 
