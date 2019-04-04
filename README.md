@@ -10,6 +10,8 @@ Dit lab is gebaseerd op Ansible 2.7. In dit lab wordt een Raspberry Pi zodanig i
 4. [Playbook - Configuratie Ansible](labs/04_NL_playbook_ansible_configuration.md)
 5. [Role - User aanmaken](labs/05_NL_role_user.md)
 6. [Vault - Encryptie gebruiken](labs/06_NL_vault.md)
+
+### Extra labs
 7. [Example - Cisco IOS switch](labs/07_NL_Example_Cisco-IOS.md)
 8. [Example - Brocade ICX switch](labs/08_NL_Example_Brocade-ICX.md)
 9. [Example - Windows 2016](labs/09_NL_Example_Windows-Server-2016.md)
