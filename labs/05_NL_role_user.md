@@ -14,7 +14,7 @@ Voor het aanmaken van een user kun je bijvoorbeeld zoeken op ``accounts``. De ro
 
 We gaan een Ansible Role gebruiken om een user account aan te maken. Doordat de tasks in de role al zijn geschreven hoef je alleen maar de role te installeren en met parameters de role aan te sturen.
 
-**Tip** De onderstaande acties worden weer uitgevoerd op de Bastion server (log dus uit op je Raspberry).
+**Tip** De onderstaande acties worden weer uitgevoerd op de Bastion server (log dus uit van je Raspberry).
 
 * Installeer de role via Ansible Galaxy:
 
