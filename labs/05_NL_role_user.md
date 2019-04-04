@@ -3,7 +3,12 @@ Voor bijna elke uitdaging is wel een kant-en-klare rol te vinden op Ansible Gala
 
 Bijna alle rollen zijn te sturen met variablen. Deze zijn vaak beschreven in de documentatie van de role. Als de beschrijving ontbreekt kun je in de directory ``defaults`` en in de directory ``vars`` de definitie van de variablen terug vinden.
 
-We gaan de role ``ontic.account`` installeren via Ansible Galaxy. 
+Voor het aanmaken van een user kun je bijvoorbeeld zoeken op ``accounts``. De role ``ontic.account`` (https://galaxy.ansible.com/ontic/account)  lijkt precies te doen wat we willen. Deze gaan we installeren via Ansible Galaxy. 
+
+**Tip** Naast het kijken naar het aantal stars of downloads kun je ook kijken of een ontwikkelaar meerdere roles heeft gebouwd. De ontic roles hebben misschien nog niet zoveel stars, maar de ontwikkelaar heeft wel tientallen roles gebouwd. Enkele bekende ontwikkelaars zijn:
+* https://galaxy.ansible.com/debops
+* https://galaxy.ansible.com/geerlingguy
+* https://galaxy.ansible.com/Oefenweb
 
 ## Task 5.1: Role installeren
 
