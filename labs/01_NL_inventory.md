@@ -56,7 +56,7 @@ Ansible werkt met modules. Voor bijna elke functie is wel een module te vinden. 
   
 * Controleer of de Ansible module ``ping`` antwoord geeft:
 
-  ``$ ansible -k -m ping workshop``
+  ``$ ansible --ask-pass -m ping workshop``
 
   ```
   SSH password:
@@ -66,10 +66,10 @@ Ansible werkt met modules. Voor bijna elke functie is wel een module te vinden. 
   }
   ```
   
-**Tip:** In ons voorbeeld vraagt Ansible om een SSH password. In een geautomatiseerd scenario is het gebruikelijk om met SSH Autorized Keys te werken. In een later lab richten we de Raspberry Pi in met Autorized keys, zodat Ansible direct, zonder wachtwoord, in kan loggen op de Pi. Omdat we nog geen Authorized keys hebben ingericht, geven we met -k de instructie om een SSH password te vragen.
+**Tip:** In ons voorbeeld vraagt Ansible om een SSH password. In een geautomatiseerd scenario is het gebruikelijk om met SSH Autorized Keys te werken. In een later lab richten we de Raspberry Pi in met Autorized keys, zodat Ansible direct, zonder wachtwoord, in kan loggen op de Pi. Omdat we nog geen Authorized keys hebben ingericht, geven we met --ask-pass de instructie om een SSH password te vragen.
 
 In de inventory file hebben we de groep [workshop] gedefineerd. De ``ping`` module zal daarom alle hosts controleren. In ons lab hebben we maar 1 host gedefineerd: ``pi``. Als we meerdere hosts in de groep hadden gezet, zouden alle hosts antwoorden. 
 
-**Tip:** Het is ook mogelijk om een enkele host te testen. Met ``ansible -k -m ping pi`` wordt de module alleen maar op de host ``pi`` uitgevoerd.
+**Tip:** Het is ook mogelijk om een enkele host te testen. Met ``ansible --ask-pass -m ping pi`` wordt de module alleen maar op de host ``pi`` uitgevoerd.
 
 Volgende stap: [Lab 02: Playbook - User aanmaken](/labs/02_NL_playbook_user.md)
