@@ -52,7 +52,7 @@ In de documentatie vind je meer details over de module ``authorized_key``. Zie h
 
 ## Task 2.2: Het playbook starten
 
-  ``$ ansible-playbook -k workshop.yml``
+  ``$ ansible-playbook --ask-pass workshop.yml``
 
   ```
   SSH password:
@@ -89,7 +89,7 @@ Omdat nu de Authorized key voor SSH op de Raspberry Pi is geïnstalleerd, kun je
   Connection to raspberry-pi closed.
   ```
 
-* Start het playbook, maar zonder de parameter ``-k``:
+* Start het playbook, maar zonder de parameter ``--ask-pass``:
 
   ``$ ansible-playbook workshop.yml``
   
