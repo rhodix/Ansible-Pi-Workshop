@@ -2,7 +2,7 @@
 In dit lab gaan we Ansible configureren, zodat Ansible vanuit elk path gestart kan worden.
 
 ## Task 4.1: Ansible configureren
-Om Ansible te kunnen starten uit de git reposistory moet deze geconfigureerd worden. Ansible levert hiervoor een script mee.
+Om Ansible te kunnen starten uit de git repository moet deze geconfigureerd worden. Ansible levert hiervoor een script mee.
   
 * Vul je playbook aan met:
 
