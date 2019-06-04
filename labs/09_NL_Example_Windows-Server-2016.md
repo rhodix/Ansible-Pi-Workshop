@@ -57,7 +57,7 @@ Waar je voor Linux de module ``ping`` zou gebruiken, moet je voor Windows de mod
 
 * Test de verbinding met ``win_ping``
 
-  ``$ ansible -m ping windows --ask-pass``
+  ``$ ansible -m win_ping windows --ask-pass``
   
   ```
   windows-01 | SUCCESS => {
