@@ -20,11 +20,13 @@ In de inventory file wordt beschreven hoe Ansible je Raspberry Pi kan bereiken. 
 ## Task 1.2: Ansible vertellen waar de inventory file staat
 Ansible zoekt standaard in de volgende paden naar de inventory file:
 
-<nog aan te vullen>
+* /etc/ansible/hosts
   
 In het configuratie bestand ansible.cfg kan een alternatief pad geconfigueerd worden naar de inventory file. Ansible zoekt in de volgende paden naar de ansible.cfg:
 
-<nog aan te vullen>
+* ansible.cfg (in de huidige directory)
+* .ansible.cfg (in de home directory
+* /etc/ansible/ansible.cfg
 
 Door een ansible.cfg in dezelfde directory te zetten als het playbook (welke we in een later lab aanmaken), worden alle default instellingen overruled door de instellingen in deze ansible.cfg. We laten de inventory wijzen naar ~/inventory (de ~ is een alias voor je home directory; de plek waar de inventory file is aangemaakt). Nu we toch bezig zijn, configureren we alvast de user waarmee we straks via Ansible inloggen op de Raspberry. Bij Raspberries is dat standaard de user: pi. Verder schakelen we host_key_checking uit. 
 
