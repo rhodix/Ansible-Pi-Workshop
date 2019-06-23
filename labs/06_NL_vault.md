@@ -1,9 +1,13 @@
 # Lab 6: Ansible Vault
 
+Ansible Vault is een functie van Ansible waarmee je gevoelige gegevens, zoals wachtwoorden of private keys (bijvoorbeeld voor SSL certificaten), kunt versleutelen. Dit maakt het mogelijk om deze gegevens toch in een ``SCM`` te zetten. Het is namelijk niet de bedoeling dat je deze gegevens in plain tekst in een ``SCM`` zet.
+
+Vault variablen worden door Ansible automatisch ontsleutelt, mits het ``vault password`` bekend is. Een vault variable begint altijd met ``$ANSIBLE_VAULT;1.1;AES256``.
+
 
 ## Task 6.1: Bestand encrypten
 
-**Tip:** ansible-vault gebruikt standaard de editor ``vi``. Mocht je liever ``nano`` gebruiken, dan kun je de editor aanpassen door de environment variable ``EDITOR`` te vullen met: ``/bin/nano`` met het commando: ``export EDITOR=/bin/nano``.
+**Tip:** ansible-vault gebruikt standaard de editor ``vi``. Mocht je liever ``nano`` gebruiken, dan kun je de editor aanpassen door de environment variable ``EDITOR`` te vullen met: ``/bin/nano``. Gebruik hiervoor het commando: ``export EDITOR=/bin/nano``.
 
 * Maak een nieuw bestand:
 
