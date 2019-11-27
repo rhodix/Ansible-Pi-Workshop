@@ -68,9 +68,9 @@ De ``user`` module verwacht het wachtwoord in SHA512 formaat.
     become_method: sudo
 
     vars:
-    account_groups:
+      account_groups:
       - name: "workshop"
-    account_users:
+      account_users:
       - name: "workshop"
         password: "$6$uj/GXuBze4eetOeT$ksVseNMTnsRdkVFqUyTICzxri9TeRnsqJyUZVRiiy6ChlDurXWsTkAOdPuSNOPJtPNnzkmrXzfx753hglmH5M/"
 
