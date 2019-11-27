@@ -1,34 +1,40 @@
-# Lab 4: Playbook - Ansible configureren
-In dit lab gaan we Ansible configureren, zodat Ansible vanuit elk path gestart kan worden.
+# Lab 4: Playbook - Workshop voorzetten vanaf de Raspberry Pi
+In dit lab gaan we de workshop files overzetten naar de Raspberry Pi, zodat de rest van de workshop vanaf de Raspberry Pi uitgevoerd kan worden.
 
-## Task 4.1: Ansible configureren
-Om Ansible te kunnen starten uit de git repository moet deze geconfigureerd worden. Ansible levert hiervoor een script mee.
+## Task 4.1: Workshop files overzetten
+Om de workshop files over te zetten, maken we gebruik van de copy module om de files naar de Pi te kopieëren.
   
 * Vul je playbook aan met:
 
   ```
-      - name: "Ensure ansible is configured"
-        command: /bin/sh /opt/ansible/hacking/env-setup
-        args:
-          creates: /opt/ansible/lib/ansible.egg-info/requires.txt
+    - name: "Ensure Ansible workshop files are copied to the pi"
+      copy:
+        src: "{{ item }}"
+        dest: "/home/pi/{{ item }}"
+      with_items:
+      - ansible.cfg
+      - inventory
+      - workshop.yml
   ```
 
-**Tip:** De Ansible modules ``command`` of ``shell`` zijn een laatste redmiddel. Probeer je probleem altijd op te lossen met Ansible modules. Pas als er nog geen module bestaat voor je probleem, grijp je terug op de ``command`` module. Met deze mpdule kun je in principe elk commando uitvoeren.
+**Tip:** Met ``with_items`` kun je een lijst genereren. Ansible vult dan steeds de variable ``item`` met de onderdelen uit de lijst.
 
-## Task 4.2: Environment variablen configureren
-De laatste stap is het zetten van de environment variablen. Daarnaast voegen we ``/opt/ansible/bin`` toe aan de path variable, zodat Ansible vanuit elk path te starten is. We voegen daarvoor een block toe aan ``/etc/bash.bashrc``.
+## Task 4.2: SSH key overzetten
+De laatste stap is het overzetten van de SSH key. 
 
 * Vul je playbook aan met:
 
   ```
-      - name: "Ensure ansible variables are set in bashrc"
-        blockinfile:
-          path: /etc/bash.bashrc
-          block: |
-            export PATH=/opt/ansible/bin:$PATH
-            export PYTHONPATH=/opt/ansible/lib
-            export MANPATH=/opt/ansible/docs/man:$MANPATH
-            export ANSIBLE_HOME=~/ansible
+    - name: "Ensure SSH key is installed on the pi"
+       copy:
+        src: "~/.ssh/{{ item }}"
+        dest: "/home/pi/.ssh/{{ item }}"
+        owner: "pi"
+        group: "pi"
+        mode: "0600"
+      with_items:
+      - id_rsa
+      - id_rsa.pub
   ```
 
 * Start het playbook. Als alles goed is gegaan, is nu Ansible start-klaar op je Raspberry!
@@ -49,29 +55,33 @@ pi                         : ok=6    changed=0    unreachable=0    failed=0
 
   ``$ ssh -l pi <ipaddress>``
   
-* Controleer de versie van Ansible (2.7.6):
+* Controleer de versie van Ansible (2.9.0):
 
   ``$ ansible --version``
   
   ```
-  ansible 2.7.6 (detached HEAD 1594ccf533) last updated 2019/02/09 21:47:22 (GMT +200)
-    config file = None
+  ansible 2.9.0
+    config file = /home/pi/ansible.cfg
     configured module search path = [u'/home/pi/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
-    ansible python module location = /opt/ansible/lib/ansible
-    executable location = /opt/ansible/bin/ansible
-    python version = 2.7.13 (default, Sep 26 2018, 18:42:22) [GCC 6.3.0 20170516]
+    ansible python module location = /usr/local/lib/python2.7/dist-packages/ansible
+    executable location = /usr/local/bin/ansible
+    python version = 2.7.16 (default, Oct 10 2019, 22:02:15) [GCC 8.3.0]
   ```
 
-* Test of het ``adhoc`` commando ``ping`` werkt. Je kunt dit zonder inventory testen met ``localhost``:
+* Test of het ``adhoc`` commando ``ping`` werkt:
 
-  ``$ ansible -m ping localhost``
+  ``$ ansible -m ping workshop``
   
   ```
-  localhost | SUCCESS => {
+  pi | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
     "changed": false,
     "ping": "pong"
   }
   ```
-  
+
+* Voer het playbook uit 
    
 Volgende stap: [Lab 5 - Role - User aanmaken](/labs/05_NL_role_user.md)
