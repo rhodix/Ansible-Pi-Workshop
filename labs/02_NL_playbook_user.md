@@ -35,9 +35,7 @@ De file ``id_rsa.pub`` is de public key. De file ``id_rsa`` is de private key. M
       authorized_key:
         user: pi
         state: present
-        key: '{{ item }}'
-      with_file:
-        - ".ssh/id_rsa.pub"
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
   ```
 
 **Tip:** Playbooks werken met Yaml files. Voor de werking van Yaml files is het belangrijk dat het inspringen van de regels nauwkeurig gebeurd. Het is gebruikelijk om dit met 2 (of 4) spaties te doen. Als je ooit met Python hebt gewerkt, dan zul je dit herkennen. 
@@ -46,7 +44,7 @@ Als het goed is, valt op dat het playbook redelijk leesbaar is. Zelfs zonder ken
 * Het playbook zal uitgevoerd worden op alle clients in de groep ``workshop``.
 * Het playbook bestaat uit een enkele taak.
 * Met ``name`` wordt beschreven wat deze taak doet.
-* De module ``authorized_key`` wordt gebruikt om voor de ``user`` ``pi`` de ``key`` te installeren. Daarbij wordt de file ``.ssh/id_rsa.pub`` gebruikt.
+* De module ``authorized_key`` wordt gebruikt om voor de ``user`` ``pi`` de ``key`` te installeren. Daarbij wordt de file ``~/.ssh/id_rsa.pub`` gebruikt.
 
 In de documentatie vind je meer details over de module ``authorized_key``. Zie https://docs.ansible.com/ansible/latest/modules/authorized_key_module.html.
 
