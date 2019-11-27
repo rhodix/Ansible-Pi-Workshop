@@ -79,8 +79,8 @@ Ansible heeft een ``pip`` module. Deze module kan Ansible installeren via Pip.
   ```
     - name: "Ensure ansible is installed"
       pip:
-      name: ansible
-      version: "2.9"
+        name: ansible
+        version: "2.9"
   ```
 
 **Tip:** Controleer altijd de handleiding van Ansible om je playbook nog slimmer te maken. Voor de gebruikte ``pip`` module staat deze op: https://docs.ansible.com/ansible/latest/modules/pip_module.html. In deze stap gebruiken we de parameter ``version`` om een specifieke versie te selecteren om via pip te installeren.
