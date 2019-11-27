@@ -11,6 +11,8 @@ Om de workshop files over te zetten, maken we gebruik van de copy module om de f
       copy:
         src: "{{ item }}"
         dest: "/home/pi/{{ item }}"
+        owner: "pi"
+        group: "pi"
       with_items:
       - ansible.cfg
       - inventory
