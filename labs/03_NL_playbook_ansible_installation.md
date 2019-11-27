@@ -11,29 +11,16 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
 * Vul deze aan met:
 
   ```
-      - name: "Ensure all dependancies are installed"
-        apt:
-          name: "{{ packages }}"
-        vars:
-          packages:
-          - ieee-data
-          - python-netaddr
-          - python-kerberos
-          - python-selinux
-          - python-xmltodict
-          - python-httplib2
-          - python-jinja2
-          - python-yaml
-          - python-paramiko
-          - python-cryptography
-          - python-setuptools
-          - python-pip
-          - sshpass
-          - git
+    - name: "Ensure all dependancies are installed"
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - python-pip
           
-      - name: "Ensure pip modules are installed"
-        pip:
-          name: pywinrm
+    - name: "Ensure pip modules are installed"
+      pip:
+        name: pywinrm
   ```
   
 **Tip:** In Ansible kun je werken met variablen. Variablen worden altijd genoteerd tussen {{ en }}. Als je variablen gebruikt moet de hele waarde genoteerd worden tussen double-quotes: ". In de variable ``packages`` in het bovenstaande playbook is een lijst gemaakt. De onderdelen van deze lijst start je in Ansible gewoon met een -. Zo ontstaat een leesbare lijst.
@@ -80,8 +67,8 @@ In Ansible is de variable ``become`` verantwoordelijk voor het starten van een p
 
 **Tip:** De Raspberry is standaard geconfigueerd dat sudo niet om een wachtwoord vraagt (``NOPASSWD: ALL``). Daarom kunnen we het playbook starten zonder ``-K``. In productie omgevingen is het echter gebruikelijk om sudo met een wachtwoord te starten. Met ``-K`` kun je dit wachtwoord aan Ansible doorgeven.
 
-## Task 3.3: Ansible via Git installeren.
-Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar een specifieke directory.
+## Task 3.3: Ansible via pip installeren.
+Ansible heeft een ``pip`` module. Deze module kan Ansible installeren via Pip.
 
 * Bewerk je playbook:
 
@@ -90,14 +77,13 @@ Ansible heeft een ``git`` module. Deze module kan een repository downloaden naar
 * Vul je playbook aan met:
 
   ```
-      - name: "Ensure ansible is installed"
-        git:
-          repo: "git://github.com/ansible/ansible.git"
-          version: v2.7.6
-          dest: /opt/ansible
+    - name: "Ensure ansible is installed"
+      pip:
+      name: ansible
+      version: 2.9
   ```
 
-**Tip:** Controleer altijd de handleiding van Ansible om je playbook nog slimmer te maken. Voor de gebruikte ``git`` module staat deze op: https://docs.ansible.com/ansible/latest/modules/git_module.html. In deze stap gebruiken we de parameter ``version`` om een specifieke versie te selecteren om via git te downloaden.
+**Tip:** Controleer altijd de handleiding van Ansible om je playbook nog slimmer te maken. Voor de gebruikte ``pip`` module staat deze op: https://docs.ansible.com/ansible/latest/modules/pip_module.html. In deze stap gebruiken we de parameter ``version`` om een specifieke versie te selecteren om via pip te installeren.
 
 * Start het playbook.
 
