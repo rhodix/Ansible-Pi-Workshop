@@ -31,13 +31,13 @@ De file ``id_rsa.pub`` is de public key. De file ``id_rsa`` is de private key. M
   - hosts: workshop
 
     tasks:
-      - name: "Ensure authorized key is installed for user pi"
-        authorized_key:
-          user: pi
-          state: present
-          key: '{{ item }}'
-        with_file:
-          - ".ssh/id_rsa.pub"
+    - name: "Ensure authorized key is installed for user pi"
+      authorized_key:
+        user: pi
+        state: present
+        key: '{{ item }}'
+      with_file:
+        - ".ssh/id_rsa.pub"
   ```
 
 **Tip:** Playbooks werken met Yaml files. Voor de werking van Yaml files is het belangrijk dat het inspringen van de regels nauwkeurig gebeurd. Het is gebruikelijk om dit met 2 (of 4) spaties te doen. Als je ooit met Python hebt gewerkt, dan zul je dit herkennen. 
