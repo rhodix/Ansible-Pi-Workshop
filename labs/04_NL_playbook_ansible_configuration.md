@@ -26,7 +26,7 @@ De laatste stap is het overzetten van de SSH key.
 
   ```
     - name: "Ensure SSH key is installed on the pi"
-       copy:
+      copy:
         src: "~/.ssh/{{ item }}"
         dest: "/home/pi/.ssh/{{ item }}"
         owner: "pi"
@@ -82,6 +82,8 @@ pi                         : ok=6    changed=0    unreachable=0    failed=0
   }
   ```
 
-* Voer het playbook uit 
+* Voer het playbook uit:
+
+  ``$ ansible-playbook workshop.yml``
    
 Volgende stap: [Lab 5 - Role - User aanmaken](/labs/05_NL_role_user.md)
