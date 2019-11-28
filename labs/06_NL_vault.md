@@ -82,10 +82,10 @@ Ansible herkent zelf of een bestand encrypt is en zal deze automatisch decrypten
 * Vul je playbook ``workshop.yml`` aan met:
 
   ```
-      - name: "Ensure foo is copied and decrypted"
-        template:
-          src: foo
-          dest: /home/pi/foo 
+    - name: "Ensure foo is copied and decrypted"
+      template:
+        src: foo
+        dest: /home/pi/foo 
   ```
 
 * Voer je playbook uit (Let er op dat je de parameter ``--ask-vault-pass`` mee geeft):
