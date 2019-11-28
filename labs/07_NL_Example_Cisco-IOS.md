@@ -68,6 +68,12 @@ Een simpel voorbeeld om mee te starten is het configureren van de inlog banner.
 
   ``$ ansible-playbook cisco.yml --ask-pass``
   
+Note: Enkele demo switches werken nog met oude Ciphers. Pas eventueel de file ``~/.ssh/config`` aan:
+```
+Host <ip address>
+   Ciphers aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+```
+  
 ## Task 7.3: Playbook maken - Switchpoorten en VLANs configureren
 
 In het volgende playbook gaan we switchpoorten en vlans configureren.
