@@ -49,7 +49,7 @@ De ``user`` module verwacht het wachtwoord in SHA512 formaat.
 
 * Je kunt Ansible gebruiken om een SHA512 hash te genereren (vervang ``<WorkshopPassword>`` door een eigen wachtwoord):
 
-  ``$ ansible all -i localhost, -m debug -a "msg={{ '<WorkshopPassword>' | password_hash('sha512') }}"``
+  ``$ ansible localhost -m debug -a "msg={{ '<WorkshopPassword>' | password_hash('sha512') }}"``
 
   ```
   localhost | SUCCESS => {
