@@ -92,10 +92,6 @@ Ansible herkent zelf of een bestand encrypt is en zal deze automatisch decrypten
 
   ``$ ansible-playbook workshop.yml --ask-vault-pass``
 
-* Log in op je Raspberry Pi (vervang ``<ipaddress>`` door het adres van je Raspberry Pi):
-
-  ``$ ssh -l pi <ipaddress>``
-
 * Controleer of het bestand decrypted op je Pi staat:
 
   ``$ cat foo``
@@ -105,5 +101,6 @@ Ansible herkent zelf of een bestand encrypt is en zal deze automatisch decrypten
   <inhoud van het bestand>
   ```
 
+**Tip:** Een mooie usecase voor Vault is het gebruik van SSL certificaten. Een SSL certificaat bestaat altijd uit een public en een private key, waarbij de private key (de naam zegt het al) beschermd dient te worden. Het is natuurlijk niet de bedoeling dat een private key in plain tekst in een Ansible script gezet wordt. Deze kun je daarom het beste dmv. Ansible Vault encrypten. Uiteindelijk belandt het certificaat natuurlijk wel unencrypted op het systeem.
 
 Terug naar: [Inhoudsopgave](/README.md)
