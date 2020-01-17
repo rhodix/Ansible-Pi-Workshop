@@ -17,6 +17,20 @@ Om Ansible goed te kunnen laten werken is het nodig om dependancies te installer
       vars:
         packages:
         - python-pip
+        - ieee-data
+        - python-netaddr
+        - python-kerberos
+        - python-selinux
+        - python-xmltodict
+        - python-httplib2
+        - python-jinja2
+        - python-yaml
+        - python-paramiko
+        - python-cryptography
+        - python-setuptools
+        - python-pip
+        - sshpass
+        - git
           
     - name: "Ensure pip modules are installed"
       pip:
